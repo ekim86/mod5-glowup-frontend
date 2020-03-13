@@ -9,7 +9,8 @@ import thunk from 'redux-thunk'
 import reducer from './reducer'
 
 let defaultState = {
-  products: []
+  products: [],
+  reviews: []
 }
 
 let store = createStore(reducer, defaultState, applyMiddleware(thunk))

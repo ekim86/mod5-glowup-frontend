@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProductCard = (props) => {
-console.log('props card', props)
+// console.log('props card', props)
   return (
     <div>
       {props.product.brand}
