@@ -1,11 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route, Switch } from 'react-router-dom'
+import MainContainer from './container/MainContainer';
+import ProductContainer from './container/ProductContainer'
 
 function App() {
+
+
   return (
-    <div className="App">
-hello
+    <div>
+      <Switch>
+        <Route path='/products' component={ProductContainer}/>
+        <Route path='/something' component={MainContainer}/>
+      </Switch>
     </div>
   );
 }
