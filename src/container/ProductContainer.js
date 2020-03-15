@@ -12,9 +12,8 @@ class ProductContainer extends React.Component {
   }
   
   render(){
-    // console.log(this.props.products, 'whatwhat')
     const products = this.props.products.map(product => <ProductCard key={product.id} product={product}/>)
-    const product_brands = this.props.products.map(product => <Brands key={product.id} product={product}/>)
+    // const product_brands = this.props.products.map(product => <Brands key={product.id} product={product}/>)
     return(
       <div>
         Product Container

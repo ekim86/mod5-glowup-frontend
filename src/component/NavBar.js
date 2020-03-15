@@ -9,7 +9,8 @@ const NavBar = () => {
       <Link to='/glowup'>Glow Up</Link>
       <Link to='/collection/best-sellers'>Best Sellers</Link>
       <Link to='/collection/brands'>Brands</Link>
-      Login
+      <Link to='/collection/Skincare'>Skincare</Link>
+      <Link to='/login'>Login</Link>
     </div>
   )
 

@@ -4,8 +4,7 @@ import ProductContainer from './ProductContainer';
 const SkinCareContainer = () => {
   return(
     <div>
-      skincarecontainer
-      <ProductContainer />
+      This is Skin Care Container
     </div>
   )
 }

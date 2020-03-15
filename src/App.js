@@ -6,16 +6,18 @@ import MainContainer from './container/MainContainer';
 // import ReviewContainer from './container/ReviewContainer'
 // import Brands from './component/Brands'
 // import SkinCareContainer from './container/SkinCareContainer'
-// import NavBar from './component/NavBar';
+import NavBar from './component/NavBar';
 
 function App() {
 
 
   return (
     <div>
+        <NavBar />
       <Switch>
-        {/* <NavBar /> */}
-        <Route path='/glowup' component={MainContainer}/>
+        <Route path='/glowup/collection/skincare' render={()=> <div>hellolink</div>}/>
+        {/* <Route path='/' render={()=> <div>hello just slash</div>}/> */}
+        <Route path='/glowup' render={() => <MainContainer/>}/>
       </Switch>
     </div>
   );
