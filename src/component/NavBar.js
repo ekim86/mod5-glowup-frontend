@@ -5,11 +5,10 @@ import { Route, Link } from 'react-router-dom'
 const NavBar = () => {
   return(
     <div>
-      {/* <Route path='/collection/skincare' component={ProductContainer}/> */}
       <Link to='/glowup'>Glow Up</Link>
+      <Link to='/collection/Skincare'>All</Link>
       <Link to='/collection/best-sellers'>Best Sellers</Link>
       <Link to='/collection/brands'>Brands</Link>
-      <Link to='/collection/Skincare'>Skincare</Link>
       <Link to='/login'>Login</Link>
     </div>
   )
