@@ -13,6 +13,7 @@
 
 // export { fetchProducts }
 
+export const nextPageCreator = () => ( {type: 'NEXT_PAGE'} )
 
 export const fetchProducts = () => dispatch => {
   fetch('http://localhost:4000/products')

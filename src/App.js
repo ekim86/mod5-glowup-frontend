@@ -20,13 +20,14 @@ function App() {
       {/* <Link to='/glowup'>Glow Up</Link>
       <Link to='/collection/best-sellers'>Best Sellers</Link>
       <Link to='/collection/brands'>Brands</Link>
-      <Link to='glowup/collection/Skincare'>Skincare</Link>
+      <Link to='glowup/collection/skincare'>Skincare</Link>
       <Link to='/login'>Login</Link> */}
         {/* <Route path='/' render={()=> <div>hello just slash</div>}/> */}
         <Route path='/glowup' render={() => <MainContainer/>}/>
         <Route path='/collection/skincare' render={()=> <SkinCareContainer/>}/>
         <Route path='/collection/best-sellers' render={()=> <SkinCareContainer/>}/>
         <Route path='/collection/brands' render={()=> <BrandsContainer/>}/>
+        {/* <Route path=/collection/${brandname}/ render={()=> <SkinCareContainer/>}/> */}
         <Route path='/login' render={()=> <UserContainer/>}/>
       </Switch>
     </div>
