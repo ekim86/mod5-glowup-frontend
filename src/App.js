@@ -27,7 +27,7 @@ function App() {
         <Route path='/collection/skincare' render={()=> <SkinCareContainer/>}/>
         <Route path='/collection/best-sellers' render={()=> <SkinCareContainer/>}/>
         <Route path='/collection/brands' render={()=> <BrandsContainer/>}/>
-        {/* <Route path=/collection/${brandname}/ render={()=> <SkinCareContainer/>}/> */}
+        <Route path='/collections/skincare/products/:productName' render={()=> <ProductPageContainer/>}/>
         <Route path='/login' render={()=> <UserContainer/>}/>
       </Switch>
     </div>

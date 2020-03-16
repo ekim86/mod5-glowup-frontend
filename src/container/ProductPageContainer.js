@@ -1,6 +1,7 @@
 import React from 'react';
 
-const ProductPageContainer = () => {
+const ProductPageContainer = (props) => {
+  console.log(props)
   return(
     <div>
       Product Page Container

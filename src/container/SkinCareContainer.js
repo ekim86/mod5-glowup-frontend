@@ -24,7 +24,6 @@ class SkinCareContainer extends React.Component {
       <div>
         {showProducts.map(product=>
           <ProductCard key={product.id} product={product}/>)}
-        {/* {product_brands} */}
         <MoreButton updateIndex={this.props.updateIndex}/>
       </div>
     )

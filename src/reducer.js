@@ -15,3 +15,20 @@ let reducer = (state, action) => {
 }
 
 export default reducer
+
+
+
+// const ReviewsReducer = (state = {}, action) => {
+//   switch(action.type){
+//       case RECEIVE_REVIEW:
+//           return merge({}, state, {[action.review.id]: action.review});
+//       case RECEIVE_ALL_REVIEWS:
+//           return merge({}, action.reviews)
+//       case REMOVE_REVIEW:
+//           let newState = merge({}, state);
+//           delete newState[action.review.id];
+//           return newState;
+//       default:
+//       return state;
+//   }
+// }
