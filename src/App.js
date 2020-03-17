@@ -16,21 +16,15 @@ function App() {
 
   return (
     <div>
-        <NavBar />
+      <NavBar />
       <Switch>
-      {/* <Link to='/glowup'>Glow Up</Link>
-      <Link to='/collection/best-sellers'>Best Sellers</Link>
-      <Link to='/collection/brands'>Brands</Link>
-      <Link to='glowup/collection/skincare'>Skincare</Link>
-      <Link to='/login'>Login</Link> */}
-        {/* <Route path='/' render={()=> <div>hello just slash</div>}/> */}
-        <Route path='/glowup' render={() => <MainContainer/>}/>
-        <Route exact path='/collections/skincare' render={()=> <SkinCareContainer/>}/>
-        <Route path='/collections/best-sellers' render={()=> <SkinCareContainer/>}/>
-        <Route path='/collections/brands' render={()=> <BrandsContainer/>}/>
-        <Route path='/reviews' render={()=> <ReviewContainer/>}/>
-        <Route path='/collections/skincare/products/:productName' render={()=> <ProductPageContainer/>}/>
-        <Route path='/login' render={()=> <UserContainer/>}/>
+        <Route path='/glowup' render={() => <MainContainer />} />
+        <Route exact path='/collections/skincare' render={() => <SkinCareContainer />} />
+        <Route path='/collections/best-sellers' render={() => <SkinCareContainer />} />
+        <Route path='/collections/brands' render={() => <BrandsContainer />} />
+        <Route path='/reviews' render={() => <ReviewContainer />} />
+        <Route path='/collections/skincare/products/:productName' render={() => <ProductPageContainer />} />
+        <Route path='/login' render={() => <UserContainer />} />
       </Switch>
     </div>
   );

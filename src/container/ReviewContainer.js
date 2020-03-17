@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchReviews } from '../actionCreators'
 import ReviewCard from '../component/ReviewCard'
 import ReviewForm from '../component/ReviewForm'
+import ReviewFormTry from '../component/ReviewFormTry'
 
 class ReviewContainer extends React.Component {
 
@@ -13,7 +14,8 @@ class ReviewContainer extends React.Component {
   render(){
     // console.log(this.props.products, 'whatwhat')
     let reviews = this.props.reviews.map(review => <ReviewCard key={review.id} review={review}/>)
-    let reviewForm = this.props.reviews.map(review => <ReviewForm key={review.id} review={review}/>)
+    // let reviewForm = this.props.reviews.map(review => <ReviewForm key={review.id} review={review}/>)
+    let reviewForm = this.props.reviews.map(review => <ReviewFormTry key={review.id} review={review}/>)
     return(
       <div>
         Review Container
