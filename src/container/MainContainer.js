@@ -1,6 +1,6 @@
 import React from 'react';
 // import NavBar from '../component/NavBar';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 function MainContainer(){  

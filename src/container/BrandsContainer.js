@@ -1,14 +1,14 @@
 import React from 'react'
 import '../Product.css';
 import { connect } from 'react-redux'
-import { fetchProducts } from '../actionCreators'
+import { fetchAllProducts } from '../actionCreators'
 import BrandCard from '../component/BrandCard'
 
 class BrandsContainer extends React.Component {
 
   componentDidMount() {
     // debugger
-    this.props.fetchProducts()
+    this.props.fetchAllProducts()
   }
 render(){
 
@@ -57,6 +57,6 @@ function msp(state) {
 
 function mdp(dispatch) {
   console.log('mdppppp', dispatch)
-  return { fetchProducts: () => dispatch(fetchProducts()) }
+  return { fetchAllProducts: () => dispatch(fetchAllProducts()) }
 }
 export default connect(msp, mdp)(BrandsContainer);

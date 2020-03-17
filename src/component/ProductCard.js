@@ -10,7 +10,7 @@ const ProductCard = (props) => {
   return (
     <Link to={`${props.product.link}`}>
     <div className='product-card'>
-      <img src={props.product.img_url} style={{ width: '200px' }} />
+      <img src={props.product.img_url} style={{ width: '200px' }} alt={props.product.name}/>
       <br />
       {props.product.brand}
       <br />

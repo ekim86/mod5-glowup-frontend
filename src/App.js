@@ -4,6 +4,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import MainContainer from './container/MainContainer';
 import ProductPageContainer from './container/ProductPageContainer'
+// import ReviewContainer from './container/ReviewContainer'
 import ReviewContainer from './container/ReviewContainer'
 import BrandsContainer from './container/BrandsContainer'
 import SkinCareContainer from './container/SkinCareContainer'
@@ -24,9 +25,10 @@ function App() {
       <Link to='/login'>Login</Link> */}
         {/* <Route path='/' render={()=> <div>hello just slash</div>}/> */}
         <Route path='/glowup' render={() => <MainContainer/>}/>
-        <Route path='/collection/skincare' render={()=> <SkinCareContainer/>}/>
-        <Route path='/collection/best-sellers' render={()=> <SkinCareContainer/>}/>
-        <Route path='/collection/brands' render={()=> <BrandsContainer/>}/>
+        <Route exact path='/collections/skincare' render={()=> <SkinCareContainer/>}/>
+        <Route path='/collections/best-sellers' render={()=> <SkinCareContainer/>}/>
+        <Route path='/collections/brands' render={()=> <BrandsContainer/>}/>
+        <Route path='/reviews' render={()=> <ReviewContainer/>}/>
         <Route path='/collections/skincare/products/:productName' render={()=> <ProductPageContainer/>}/>
         <Route path='/login' render={()=> <UserContainer/>}/>
       </Switch>

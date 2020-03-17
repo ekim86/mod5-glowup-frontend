@@ -1,17 +1,18 @@
 import React from 'react';
 import '../Product.css';
 import { connect } from 'react-redux'
-import { fetchProducts } from '../actionCreators'
+import { fetchAllProducts } from '../actionCreators'
 import ProductCard from '../component/ProductCard'
-import BrandsContainer from '../container/BrandsContainer'
+// import BrandsContainer from '../container/BrandsContainer'
 import { nextPageCreator } from '../actionCreators';
 import MoreButton from '../component/MoreButton'
+import ReviewCard from '../component/ReviewCard'
 class SkinCareContainer extends React.Component {
 
 
   componentDidMount() {
     // debugger
-    this.props.fetchProducts()
+    this.props.fetchAllProducts()
   }
 
   
@@ -19,7 +20,7 @@ class SkinCareContainer extends React.Component {
   render(){
     // const products = this.props.products.map(product => <ProductCard key={product.id} product={product}/>)
     const showProducts = this.props.products.slice(this.props.startIndex, this.props.startIndex + 12) 
-    const product_brands = this.props.products.map(product => <BrandsContainer key={product.id} product={product}/>)
+    // const product_brands = this.props.products.map(product => <BrandsContainer key={product.id} product={product}/>)
     return(
       <div>
         {showProducts.map(product=>
@@ -32,7 +33,7 @@ class SkinCareContainer extends React.Component {
 }
 
 function msp(state) {
-  console.log('mspp', state)
+  // console.log('mspp', state)
   return {
     products: state.products,
     startIndex: state.startIndex,
@@ -40,9 +41,9 @@ function msp(state) {
 }
 
 function mdp(dispatch) {
-  console.log('mdppppp', dispatch)
+  // console.log('mdppppp', dispatch)
   return { 
-    fetchProducts: () => dispatch(fetchProducts()),
+    fetchAllProducts: () => dispatch(fetchAllProducts()),
     updateIndex: () => dispatch(nextPageCreator()) 
   }
 }
