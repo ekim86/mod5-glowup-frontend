@@ -42,7 +42,21 @@ export const fetchReviews = () => dispatch => {
   })
 }
 
-
+export const postReview = (review) => dispatch => {
+  // debugger
+  fetch(`http://localhost:4000/reviews`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({review})
+  }).then(res => res.json())
+  .then(data => {
+    dispatch({type: 'POST REVIEW', payload: data})
+  })
+  
+}
 
 
 

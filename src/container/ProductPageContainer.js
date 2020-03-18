@@ -41,7 +41,7 @@ class ProductPageContainer extends React.Component {
         </div>
         <hr></hr>
 
-        <ReviewContainer />
+        <ReviewContainer productId={this.props.product.id} />
         {/* Review: {console.log('REVIEWSSS', this.props.product.reviews)} */}
       </div>
     )

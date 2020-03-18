@@ -1,29 +1,33 @@
 import React from 'react'
 import '../Review.css';
+import { connect } from 'react-redux'
+import { postReview } from '../actionCreators'
 
 class ReviewForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rating: '',
+      review: '',
+      product_id: '',
+      user_id: 1
+    };
+  }
 
-  changeHandler = (e) => {
-    let value = e.target.value
-    this.setState({
-      value: value
-    })
-    console.log(this.setState, 'stateee')
+  changeHandler(field) {
+    return (e) => {
+      this.setState({
+        [field]: e.target.value,
+        'product_id': this.props.productId
+      });
+    };
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // debugger
-    // this.setState({
-    //   [e.target.name]: e.target.value
-      //i can also use placeholder
-    // })
-    // console.log(this.state, 'formmmm')
-
-    // fetch('http://localhost:4000/reviews', {
-    //   method: 'POST',
-    //   body: review,
-    // });
+    console.log('SUBMITFORM', this.props)
+    const review = Object.assign({}, this.state)
+    this.props.postReview(review)
   }
 
 
@@ -33,20 +37,12 @@ class ReviewForm extends React.Component {
     return (
       <div>
         Write a review
-        {/* <form onSubmit={(e) => this.props.handleSubmit(e, this.state)}> */}
         <form onSubmit={this.handleSubmit}>
-          <input type='text' value={`${this.props.review.user.first_name}`} />
-          <input type="textarea" name="rating" placeholder='Rating' onChange={this.handleSubmit} />
-          <input type="textarea" name="review" placeholder='Review' onChange={this.handleSubmit} />
+          <input type='text' name='user' placeholder='User' />
+          <input type="textarea" name="rating" placeholder='Rating 1-5' onChange={this.changeHandler('rating')} />
+          <input type="textarea" name="review" placeholder='Review' onChange={this.changeHandler('review')} />
           <button>Submit</button>
         </form>
-        {/* <form>
-          {this.props.review.user.first_name}
-          <input type='text' placeholder='review' onChange={this.changeHandler}/>
-          <textarea rows="3" maxLength="300"/>
-          
-          <input type='Submit'/>
-        </form> */}
       </div>
     )
 
@@ -54,4 +50,15 @@ class ReviewForm extends React.Component {
 
 }
 
-export default ReviewForm
+
+function msp(state) {
+  console.log('mspp', state)
+  return {review: state.review}
+}
+
+function mdp(dispatch) {
+  console.log('mdppppp', dispatch)
+  return { postReview: (review) => dispatch(postReview(review)) }
+}
+
+export default connect(msp, mdp)(ReviewForm)

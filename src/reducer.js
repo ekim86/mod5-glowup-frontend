@@ -8,10 +8,10 @@ let reducer = (state, action) => {
     case 'FETCH REVIEWS':
       return { ...state, reviews: action.payload }
     case 'POST REVIEW':
-      return { review: action.payload, ...state }
+      return { ...state, review: action.payload.review }
     case 'NEXT_PAGE':
       let nextIndex = state.startIndex + 10
-      if (nextIndex >= state.products.length) { nextIndex = 0 } // this is for the page wrap around 
+      if (nextIndex >= state.products.length) { nextIndex = 0 }
       return { ...state, startIndex: nextIndex }
     default:
       return state
