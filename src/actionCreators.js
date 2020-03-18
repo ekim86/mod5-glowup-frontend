@@ -24,11 +24,8 @@ export const fetchAllProducts = () => dispatch => {
   })
 }
 
-// export const fetchProduct = (product) => dispatch => {
-export const fetchProduct = () => dispatch => {
-  // debugger
-  // fetch(`http://localhost:4000/products/${product}`)
-  fetch('http://localhost:4000/products/1')
+export const fetchProduct = (id) => dispatch => {
+  fetch(`http://localhost:4000/products/${id}`)
   .then(res => res.json())
   .then(data => {
    console.log('fetchONEproductid ACTIONNNN', data)
@@ -44,3 +41,9 @@ export const fetchReviews = () => dispatch => {
     dispatch({type: 'FETCH REVIEWS', payload: data})
   })
 }
+
+
+
+
+
+

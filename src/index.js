@@ -7,7 +7,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import reducer from './reducer'
-// import { reducer as formReducer }from 'redux-form'
 
 let defaultState = {
   products: [],
@@ -15,6 +14,7 @@ let defaultState = {
   startIndex: 0,
   product: '',
   value: '',
+  review: '',
 }
 
 let store = createStore(reducer, defaultState, applyMiddleware(thunk))

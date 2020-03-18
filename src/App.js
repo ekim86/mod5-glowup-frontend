@@ -23,7 +23,9 @@ function App() {
         <Route path='/collections/best-sellers' render={() => <SkinCareContainer />} />
         <Route path='/collections/brands' render={() => <BrandsContainer />} />
         <Route path='/reviews' render={() => <ReviewContainer />} />
-        <Route path='/collections/skincare/products/:productName' render={() => <ProductPageContainer />} />
+        {/* <Route path='/collections/skincare/products/:productName' render={() => <ProductPageContainer />} /> */}
+        {/* <Route path='/collections/skincare/:id' render={() => <ProductPageContainer />} /> */}
+        <Route path='/collections/skincare/:productId' component={ProductPageContainer} />
         <Route path='/login' render={() => <UserContainer />} />
       </Switch>
     </div>

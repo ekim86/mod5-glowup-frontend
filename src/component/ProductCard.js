@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom'
 
 const ProductCard = (props) => {
 
-
-
   console.log('props card', props)
   return (
-    <Link to={`${props.product.link}`}>
+    // <Link to={`${props.product.link}`}>
+    <Link to={`/collections/skincare/${props.product.id}`}>
     <div className='product-card'>
       <img src={props.product.img_url} style={{ width: '200px' }} alt={props.product.name}/>
       <br />

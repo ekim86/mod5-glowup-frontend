@@ -18,7 +18,6 @@ class SkinCareContainer extends React.Component {
   
   
   render(){
-    // const products = this.props.products.map(product => <ProductCard key={product.id} product={product}/>)
     const showProducts = this.props.products.slice(this.props.startIndex, this.props.startIndex + 12) 
     // const product_brands = this.props.products.map(product => <BrandsContainer key={product.id} product={product}/>)
     return(

@@ -4,11 +4,12 @@ const ReviewCard = (props) => {
 console.log('props reviewwwwcard', props)
   return (
     <div>
-      User: {props.review.user.first_name}
+      {props.review.user.first_name}
       <br/>
       Rating: {props.review.rating}
       <br/>
       Review: {props.review.review}
+      <hr></hr>
     </div>
   )
 
