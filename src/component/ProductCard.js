@@ -11,12 +11,13 @@ const ProductCard = (props) => {
     <div className='product-card'>
       <img src={props.product.img_url} style={{ width: '200px' }} alt={props.product.name}/>
       <br />
+      <div>
       {props.product.brand}
       <br />
-      <div>
-        {props.product.name}</div>
+        {props.product.name}
       <br />
       ${props.product.price}
+      </div>
     </div>
     </Link>
   )

@@ -1,8 +1,9 @@
 
 body {
   background: none;
+  color: #000;
   font-size: 20px;
   text-align: center;
-  font-family: 'futura', Arial, sans-serif;
+  font-family: 'futura', Helvetica, sans-serif;
 }
 

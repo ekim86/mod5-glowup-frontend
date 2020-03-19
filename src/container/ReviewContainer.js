@@ -4,6 +4,7 @@ import { fetchReviews } from '../actionCreators'
 import ReviewCard from '../component/ReviewCard'
 import ReviewForm from '../component/ReviewForm'
 import ReviewFormTry from '../component/ReviewFormTry'
+import '../Review.css';
 
 class ReviewContainer extends React.Component {
 

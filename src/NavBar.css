@@ -1,0 +1,52 @@
+
+.nav-bar {
+  display: flex;
+  font-size: 16px;
+  color: #000;
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+  display: block; 
+  align-content: space-evenly;
+  
+  /* padding: 8px; */
+}
+
+nav.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  /* background-color: green;
+  border: 2px solid #4CAF50;
+  how come it's not sticky????? */
+}
+
+.nav-bar a {
+  display: flex;
+  color: #000;
+  overflow: hidden;
+  background-color: none;
+  text-align: center;
+  display: block; 
+  /* align-content: space-evenly; */
+  padding: 8px;
+}
+
+.nav-bar a:hover {
+  color: #fa2acd;
+}
+
+.nav-bar-logo {
+  align-content: left;
+  float: left;
+}
+
+.nav-bar-middle {
+  align-content: center;
+  float: center;
+}
+
+.nav-bar-login {
+  align-content: right;
+  float: right;
+}

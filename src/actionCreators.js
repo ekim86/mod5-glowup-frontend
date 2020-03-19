@@ -58,6 +58,36 @@ export const postReview = (review) => dispatch => {
   
 }
 
+export const editReview = (reviewId) => dispatch => {
+  // debugger
+  fetch(`http://localhost:4000/reviews/${reviewId}`, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({reviewId})
+  }).then(res => res.json())
+  .then(data => {
+    dispatch({type: 'EDIT REVIEW', payload: data})
+  })
+  
+}
 
 
+export const deleteReview = (reviewId) => dispatch => {
+  // debugger
+  fetch(`http://localhost:4000/reviews/${reviewId}`, {
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({reviewId})
+  }).then(res => res.json())
+  .then(data => {
+    dispatch({type: 'DELETE REVIEW', payload: data})
+  })
+  
+}
 

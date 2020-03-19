@@ -9,6 +9,10 @@ let reducer = (state, action) => {
       return { ...state, reviews: action.payload }
     case 'POST REVIEW':
       return { ...state, review: action.payload.review }
+    case 'EDIT REVIEW':
+      return { ...state, review: action.payload.review }
+      case 'DELETE REVIEW':
+        return { ...state, review: action.payload.review }
     case 'NEXT_PAGE':
       let nextIndex = state.startIndex + 10
       if (nextIndex >= state.products.length) { nextIndex = 0 }

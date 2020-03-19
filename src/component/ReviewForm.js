@@ -2,6 +2,7 @@ import React from 'react'
 import '../Review.css';
 import { connect } from 'react-redux'
 import { postReview } from '../actionCreators'
+import StarRatingComponent from 'react-star-rating-component';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class ReviewForm extends React.Component {
       rating: '',
       review: '',
       product_id: '',
-      user_id: 1
+      user_id: 1,
     };
   }
 
@@ -30,6 +31,9 @@ class ReviewForm extends React.Component {
     this.props.postReview(review)
   }
 
+  onStarClick(nextValue, prevValue, name) {
+    this.setState({ rating: nextValue });
+  }
 
   render() {
     console.log('props reviewFORM', this.props)
@@ -39,8 +43,17 @@ class ReviewForm extends React.Component {
         Write a review
         <form onSubmit={this.handleSubmit}>
           <input type='text' name='user' placeholder='User' />
-          <input type="textarea" name="rating" placeholder='Rating 1-5' onChange={this.changeHandler('rating')} />
-          <input type="textarea" name="review" placeholder='Review' onChange={this.changeHandler('review')} />
+          <br/>
+          <StarRatingComponent
+          name="rate1"
+          starCount={5}
+          value={this.state.rating}
+          onStarClick={this.onStarClick.bind(this)}
+        />
+        <br/>
+          {/* <input type="textarea" name="rating" placeholder='Rating 1-5' onChange={this.changeHandler('rating')} /> */}
+          <textarea name="review" placeholder='Review' onChange={this.changeHandler('review')} />
+          <br/>
           <button>Submit</button>
         </form>
       </div>

@@ -9,3 +9,16 @@
   word-wrap: break-word;
   resize: vertical;
   } */
+
+  div.reviewer {
+    display: flex;
+    justify-content: left;
+    overflow:hidden;
+
+  }
+
+  div.review {
+    display: flex;
+    justify-content: right;
+    overflow:hidden;
+  }

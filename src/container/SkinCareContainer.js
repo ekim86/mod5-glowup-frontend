@@ -7,6 +7,7 @@ import ProductCard from '../component/ProductCard'
 import { nextPageCreator } from '../actionCreators';
 import MoreButton from '../component/MoreButton'
 import ReviewCard from '../component/ReviewCard'
+
 class SkinCareContainer extends React.Component {
 
 
@@ -24,6 +25,7 @@ class SkinCareContainer extends React.Component {
       <div>
         {showProducts.map(product=>
           <ProductCard key={product.id} product={product}/>)}
+          <br/>
         <MoreButton updateIndex={this.props.updateIndex}/>
       </div>
     )

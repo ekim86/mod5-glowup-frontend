@@ -14,6 +14,7 @@ let defaultState = {
   startIndex: 0,
   product: '',
   value: '',
+  rating: 1,
 }
 
 let store = createStore(reducer, defaultState, applyMiddleware(thunk))
