@@ -14,7 +14,8 @@ let defaultState = {
   startIndex: 0,
   product: '',
   value: '',
-  rating: 1,
+  cart_items: [],
+  // rating: '',
 }
 
 let store = createStore(reducer, defaultState, applyMiddleware(thunk))

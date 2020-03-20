@@ -11,27 +11,47 @@ class ReviewContainer extends React.Component {
   componentDidMount() {
     this.props.fetchReviews()
   }
-  
-  render(){
+
+  handleEdit = (id) => {
+    // e.preventDefault()
+    console.log('HANDLE EDIT from REVIEW')
+    // const review = Object.assign({}, this.state)
+    // this.props.postReview(review)
+    fetch(`http://localhost:4000/reviews/${this.props.review.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        rating: 'new rating',
+        review: 'new review',
+      })
+    })
+  }
+
+  render() {
     // console.log(this.props.products, 'whatwhat')
-    let reviews = this.props.reviews.map(review => <ReviewCard key={review.id} review={review}/>)
-    let reviewForm = <ReviewForm productId={this.props.productId}/>
+    let reviews = this.props.reviews.map(review => <ReviewCard key={review.id} review={review} />)
+    let reviewForm = <ReviewForm key={this.props.productId} productId={this.props.productId} />
     // let reviewForm = this.props.reviews.map(review => <ReviewFormTry key={review.id} review={review}/>)
-    return(
+    return (
       <div>
         Review Container
         {reviewForm}
-        <hr/>
+        {/* <ReviewForm key={this.props.productId} productId={this.props.productId} onClick={this.handleEdit}/> */}
+        <hr />
         {reviews}
+        {/* <ReviewCard/> */}
       </div>
     )
   }
-  
+
 }
 
 function msp(state) {
   console.log('mspp', state)
-  return {reviews: state.reviews}
+  return { reviews: state.reviews }
 }
 
 function mdp(dispatch) {

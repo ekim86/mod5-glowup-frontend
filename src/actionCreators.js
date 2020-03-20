@@ -14,6 +14,19 @@
 // export { fetchProducts }
 
 export const nextPageCreator = () => ( {type: 'NEXT_PAGE'} )
+export const previousPageCreator = () => ( {type: 'PREVIOUS_PAGE'} )
+
+export const addToCart = (id) => ( {type: 'ADD_TO_CART'} )
+
+
+
+
+
+// export const addToCart= (id)=> dispatch => {
+//   return{
+//       type: 'ADD_TO_CART',
+//        id }
+//   }
 
 export const fetchAllProducts = () => dispatch => {
   fetch('http://localhost:4000/products')
@@ -44,7 +57,7 @@ export const fetchReviews = () => dispatch => {
 
 export const postReview = (review) => dispatch => {
   // debugger
-  fetch(`http://localhost:4000/reviews`, {
+  fetch(`http://localhost:4000/reviews/`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -83,11 +96,12 @@ export const deleteReview = (reviewId) => dispatch => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({reviewId})
-  }).then(res => res.json())
-  .then(data => {
-    dispatch({type: 'DELETE REVIEW', payload: data})
+  //   body: JSON.stringify({reviewId})
+  // }).then(res => res.json())
+  // .then(data => {
+  //   dispatch({type: 'DELETE REVIEW', payload: data})
   })
   
 }
+
 

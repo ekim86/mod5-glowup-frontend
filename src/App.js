@@ -8,6 +8,7 @@ import ProductPageContainer from './container/ProductPageContainer'
 import ReviewContainer from './container/ReviewContainer'
 import BrandsContainer from './container/BrandsContainer'
 import SkinCareContainer from './container/SkinCareContainer'
+import CartContainer from './container/CartContainer'
 import UserContainer from './container/UserContainer'
 import NavBar from './component/NavBar';
 
@@ -26,7 +27,8 @@ function App() {
         {/* <Route path='/collections/skincare/products/:productName' render={() => <ProductPageContainer />} /> */}
         {/* <Route path='/collections/skincare/:id' render={() => <ProductPageContainer />} /> */}
         <Route path='/collections/skincare/:productId' component={ProductPageContainer} />
-        <Route path='/login' render={() => <UserContainer />} />
+        <Route path='/account/:id/cart' component={CartContainer} />
+        <Route path='/account/login' render={() => <UserContainer />} />
       </Switch>
     </div>
   );

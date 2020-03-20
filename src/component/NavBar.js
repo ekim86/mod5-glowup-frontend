@@ -5,22 +5,6 @@ import '../NavBar.css'
 
 const NavBar = () => {
   return (
-    // <div className='nav-bar'>
-
-    //     <div className='nav-bar-logo'>
-    //       <Link to='/glowup'>Glow Up</Link>
-    //     </div>
-    //     <div className='nav-bar-middle'>
-    //       <Link to='/collections/skincare'>All</Link>
-    //       <Link to='/collections/best-sellers'>Best Sellers</Link>
-    //       <Link to='/collections/brands'>Brands</Link>
-    //     </div>
-    //     <div className='nav-bar-login'>
-    //       <Link to='/login'>Login</Link>
-    //     </div>
-
-    // </div>
-
 
     <nav className="navbar navbar-expand-lg sticky bg-white">
 
@@ -39,7 +23,10 @@ const NavBar = () => {
             <a className="nav-link" href="/collections/brands">Brands</a>
           </li>
           <div>
-            <a className="nav-link" href="/login">Login</a>
+            <a className="nav-link" href={`/account/1/cart/`}>Cart</a>
+          </div>
+          <div>
+            <a className="nav-link" href="/account/login">Login</a>
           </div>
         </ul>
 

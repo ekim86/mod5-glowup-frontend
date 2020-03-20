@@ -5,7 +5,9 @@ import { fetchAllProducts } from '../actionCreators'
 import ProductCard from '../component/ProductCard'
 // import BrandsContainer from '../container/BrandsContainer'
 import { nextPageCreator } from '../actionCreators';
-import MoreButton from '../component/MoreButton'
+import { previousPageCreator } from '../actionCreators';
+import NextButton from '../component/NextButton'
+import PreviousButton from '../component/PreviousButton'
 import ReviewCard from '../component/ReviewCard'
 
 class SkinCareContainer extends React.Component {
@@ -26,7 +28,8 @@ class SkinCareContainer extends React.Component {
         {showProducts.map(product=>
           <ProductCard key={product.id} product={product}/>)}
           <br/>
-        <MoreButton updateIndex={this.props.updateIndex}/>
+        <NextButton nextIndex={this.props.nextIndex}/>
+        <PreviousButton previousIndex={this.props.previousIndex}/>
       </div>
     )
   }
@@ -49,7 +52,8 @@ function mdp(dispatch) {
   // console.log('mdppppp', dispatch)
   return { 
     fetchAllProducts: () => dispatch(fetchAllProducts()),
-    updateIndex: () => dispatch(nextPageCreator()) 
+    nextIndex: () => dispatch(nextPageCreator()),
+    previousIndex: () => dispatch(previousPageCreator()) 
   }
 }
 export default connect(msp, mdp)(SkinCareContainer);

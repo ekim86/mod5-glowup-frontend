@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { fetchProduct } from '../actionCreators'
-// import ReviewCard from '../component/ReviewCard'
+import { addToCart } from '../actionCreators'
 import ReviewContainer from './ReviewContainer'
+import CartContainer from './CartContainer'
 import ProductTabs from '../component/ProductTabs';
 import '../Product.css';
 require('../style.css');
@@ -21,6 +22,10 @@ class ProductPageContainer extends React.Component {
     // this.reviewFetchHelper()
   }
 
+  handleClick = (id)=>{
+    this.props.addToCart(id);
+    }
+
   render() {
     console.log('props in ppc', this.props)
     return (
@@ -29,7 +34,7 @@ class ProductPageContainer extends React.Component {
         <div className='ppc-product-info'>
 
           <div align='ppc-image' >
-            <img src={this.props.product.img_url} align='left' style={{ height: '500px' }} />
+            <img src={this.props.product.img_url} alt={this.props.product.name} align='left' style={{ height: '500px' }} />
           </div>
 
           <div className='ppc-info'>
@@ -37,7 +42,7 @@ class ProductPageContainer extends React.Component {
             <h5>{this.props.product.name}
               <br />
         ${this.props.product.price}</h5>
-            <button>add to bag</button>
+            <button onClick={()=>{this.handleClick(this.props.product.id)}}>add to bag</button>
 
 <div>
               <ProductTabs>
@@ -89,6 +94,7 @@ function mdp(dispatch) {
   return {
           // fetchProduct: (product) => dispatch(fetchProduct(product)),
           fetchProduct: (id) => dispatch(fetchProduct(id)),
+          addToCart: (id)=> dispatch(addToCart(id))
     // updateIndex: () => dispatch(nextPageCreator()) 
   }
 }

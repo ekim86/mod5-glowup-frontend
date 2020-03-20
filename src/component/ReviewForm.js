@@ -11,7 +11,7 @@ class ReviewForm extends React.Component {
       rating: '',
       review: '',
       product_id: '',
-      user_id: 1,
+      user_id: 1
     };
   }
 
@@ -26,9 +26,9 @@ class ReviewForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('SUBMITFORM', this.props)
     const review = Object.assign({}, this.state)
     this.props.postReview(review)
+    console.log('SUBMITFORM', this.props.history)
   }
 
   onStarClick(nextValue, prevValue, name) {
@@ -52,7 +52,7 @@ class ReviewForm extends React.Component {
         />
         <br/>
           {/* <input type="textarea" name="rating" placeholder='Rating 1-5' onChange={this.changeHandler('rating')} /> */}
-          <textarea name="review" placeholder='Review' onChange={this.changeHandler('review')} />
+          <input type='textarea' name="review" placeholder='Review' onChange={this.changeHandler('review')} />
           <br/>
           <button>Submit</button>
         </form>
