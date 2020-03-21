@@ -15,6 +15,7 @@ let defaultState = {
   product: '',
   value: '',
   cart_items: [],
+  user: '',
   // rating: '',
 }
 
