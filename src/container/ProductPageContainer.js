@@ -5,6 +5,7 @@ import { addToCart } from '../actionCreators'
 import ReviewContainer from './ReviewContainer'
 import CartContainer from './CartContainer'
 import ProductTabs from '../component/ProductTabs';
+import ReviewIndex from '../component/ReviewIndex';
 import '../Product.css';
 require('../style.css');
 
@@ -67,7 +68,8 @@ class ProductPageContainer extends React.Component {
 <hr></hr>
 
         <div>
-          <ReviewContainer productId={this.props.product.id} />
+          {/* <ReviewContainer productId={this.props.product.id} /> */}
+          <ReviewIndex productId={this.props.product.id} />
         </div>
 
         </div>

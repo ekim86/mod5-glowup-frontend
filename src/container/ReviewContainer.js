@@ -51,6 +51,7 @@ class ReviewContainer extends React.Component {
 
 function msp(state) {
   console.log('mspp', state)
+  // debugger
   return { reviews: state.reviews }
 }
 

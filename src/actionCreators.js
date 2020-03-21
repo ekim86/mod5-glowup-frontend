@@ -18,10 +18,6 @@ export const previousPageCreator = () => ( {type: 'PREVIOUS_PAGE'} )
 
 export const addToCart = (id) => ( {type: 'ADD_TO_CART'} )
 
-
-
-
-
 // export const addToCart= (id)=> dispatch => {
 //   return{
 //       type: 'ADD_TO_CART',

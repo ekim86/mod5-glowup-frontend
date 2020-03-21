@@ -36,11 +36,9 @@ let reducer = (state, action) => {
             addedItems: [...state.addedItems, addedItem],
             total: newTotal
           }
-
         }
       }
       else {
-        // return state
         return { ...state, cart: action.payload }
       }
 
@@ -58,4 +56,4 @@ let reducer = (state, action) => {
 
 }
 
-export default reducer
+export default reducer;
