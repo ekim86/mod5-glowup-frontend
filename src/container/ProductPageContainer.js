@@ -5,6 +5,7 @@ import ReviewContainer from './ReviewContainer'
 import CartContainer from './CartContainer'
 import ProductTabs from '../component/ProductTabs';
 import ReviewIndex from '../component/ReviewIndex';
+import ReviewFormNewContainer from './ReviewFormNewContainer';
 import '../Product.css';
 require('../style.css');
 
@@ -64,7 +65,8 @@ class ProductPageContainer extends React.Component {
       <hr></hr>
         <div>
           {/* <ReviewContainer productId={this.props.product.id} /> */}
-          <ReviewIndex productId={this.props.product.id} />
+          <ReviewFormNewContainer productId={this.props.productId} currentUserId={this.props.currentUserId} currentUserName={this.props.currentUserName}/>
+          <ReviewIndex productId={this.props.product.id} currentUserId={this.props.currentUserId} />
         </div>
       </div>
     )
@@ -73,12 +75,23 @@ class ProductPageContainer extends React.Component {
 
 function msp(state, ownProps) {
   // console.log('MSP PRODUCT PAGE CONTAINER', state)
-  const productId = ownProps.match.params.productId
+  const productId = ownProps.match.params.productId;
+  const product = state.product;
+  const currentUser = ownProps.currentUser
+  let currentUserId = null;
+  let currentUserName = null;
+  if (currentUser) {
+    currentUserId = currentUser['id'];
+    currentUserName = currentUser['first_name']
+  }
+
   return {
           // products: state.products,
           // startIndex: state.startIndex,
-    productId: productId,
-    product: state.product
+    productId,
+    product,
+    currentUserId,
+    currentUserName
   }
 }
 

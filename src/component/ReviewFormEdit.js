@@ -7,9 +7,11 @@ class ReviewFormNew extends React.Component {
     this.state = {
       rating: this.props.review.rating,
       review: this.props.review.review,
-      product_id: this.props.productId,
-      user_id: this.props.currentUserId
+      product_id: this.props.review.product_id,
+      user_id: this.props.currentUserId,
+      id: this.props.reviewId
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   changeHandler(field) {
@@ -29,31 +31,38 @@ class ReviewFormNew extends React.Component {
     console.log('SUBMITFORM', this.props.history)
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+    const { reviewId } = this.props;
+    this.props.deleteReview(reviewId);
+  }
+
   onStarClick(nextValue, prevValue, name) {
     this.setState({ rating: nextValue });
   }
 
   render () {
-    console.log('props ReviewFormNew', this.props)
+    console.log('props ReviewFormEdit', this.props)
 
     return (
-      <div>
-        ReviewFormNew
-        Write a review
-        <form onSubmit={this.handleSubmit}> 
-          <label>User: {this.props.currentUserName} </label>
-            <br/>
+      <div className='reviewer'>
+        {this.props.review.user.first_name}
+        <form> 
             <StarRatingComponent
             name="rate1"
             starCount={5}
             value={this.state.rating}
             onStarClick={this.onStarClick.bind(this)}
           />
-          <br/>
-          {/* <input type="textarea" name="rating" placeholder='Rating 1-5' onChange={this.changeHandler('rating')} /> */}
-          <input type='textarea' name="review" placeholder='Review' onChange={this.changeHandler('review')} />
-          <br/>
-          <button>Submit</button>
+          Review: <input
+            type='textarea'
+            name="review"
+            placeholder='Review'
+            onChange={this.changeHandler('review')}
+            value={this.state.review}
+          />
+          <button onClick={this.handleSubmit}>Edit review</button>
+          <button onClick={this.handleDelete}>Delete review</button>
         </form>
       </div>
     )

@@ -36,6 +36,7 @@ class App extends React.Component {
         if (response.errors){
           alert(response.errors)
         } else {
+          // debugger
           this.setState({
             user: response
           })
@@ -94,8 +95,8 @@ class App extends React.Component {
           <Route path='/collections/brands' render={() => <BrandsContainer />} />
           <Route path='/reviews' render={() => <ReviewContainer />} />
           {/* <Route path='/collections/skincare/products/:productName' render={() => <ProductPageContainer />} /> */}
-          {/* <Route path='/collections/skincare/:id' render={() => <ProductPageContainer />} /> */}
-          <Route path='/collections/skincare/:productId' component={ProductPageContainer} />
+          <Route path='/collections/skincare/:productId' render={(props) => <ProductPageContainer {...props} currentUser={this.state.user} />} />
+          {/* <Route path='/collections/skincare/:productId' component={ProductPageContainer} currentUser={this.state.user}/> */}
           <Route path='/account/:id/cart' component={CartContainer} />
           {/* <Route path='/account/login' render={() => <UserContainer />} /> */}
           <Route path='/account/login' render={() => <UserContainer login={this.login} currentUser={this.state.user}/>}/>

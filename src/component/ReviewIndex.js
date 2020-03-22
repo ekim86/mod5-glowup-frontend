@@ -6,11 +6,12 @@ import { deleteReview, editReview } from '../actionCreators'
 class ReviewIndex extends React.Component {
 
   render() {
-    const { reviews } = this.props;
+    const { reviews, currentUserId } = this.props;
 
     const reviewCards = reviews.map((review, idx) => {
       return <ReviewCardNew review={review}
       key={idx}
+      currentUserId={currentUserId}
       deleteReview={this.props.deleteReview}
       editReview={this.props.editReview}
       />
