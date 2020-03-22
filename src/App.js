@@ -54,6 +54,7 @@ class App extends React.Component {
             localStorage.token = resp.token
           })
         }
+        this.props.history.push('/glowup')
       })
   }
 
@@ -87,7 +88,7 @@ class App extends React.Component {
       <div>
         <NavBar currentUser={this.state.user} logout={this.logout}/>
         <Switch>
-          <Route path='/glowup' render={() => <MainContainer />} />
+          <Route path='/glowup' render={() => <MainContainer currentUser={this.state.user}/>} />
           <Route exact path='/collections/skincare' render={() => <SkinCareContainer />} />
           <Route path='/collections/best-sellers' render={() => <SkinCareContainer />} />
           <Route path='/collections/brands' render={() => <BrandsContainer />} />

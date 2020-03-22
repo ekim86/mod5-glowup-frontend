@@ -42,8 +42,8 @@ export const fetchProduct = (id) => dispatch => {
   })
 }
 
-export const fetchReviews = () => dispatch => {
-  fetch('http://localhost:4000/reviews')
+export const fetchReviews = (productId) => dispatch => {
+  fetch(`http://localhost:4000/products/${productId}/reviews`)
   .then(res => res.json())
   .then(data => {
    console.log('fetchreview action', data)

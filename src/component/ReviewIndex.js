@@ -6,7 +6,9 @@ import { deleteReview, editReview } from '../actionCreators'
 class ReviewIndex extends React.Component {
 
   render() {
-    const reviews = this.props.reviews.map((review, idx) => {
+    const { reviews } = this.props;
+
+    const reviewCards = reviews.map((review, idx) => {
       return <ReviewCardNew review={review}
       key={idx}
       deleteReview={this.props.deleteReview}
@@ -17,7 +19,7 @@ class ReviewIndex extends React.Component {
     return (
       <div className="review-index-container">
         <ul className="review-index-list">
-          {reviews}
+          {reviewCards}
         </ul>
       </div>
     )
@@ -26,10 +28,10 @@ class ReviewIndex extends React.Component {
 
 function msp(state, ownProps) {
   const productId = ownProps.productId;
-  // debugger
+  const reviews = state.reviews || [];
   return {
-    reviews: state.reviews,
-    productId: productId
+    productId,
+    reviews
   }
 }
 
