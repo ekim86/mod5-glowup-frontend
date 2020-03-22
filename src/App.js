@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 // import './App.css';
-import { Route, Switch } from 'react-router-dom'
+import { withRouter, Route, Switch } from 'react-router-dom'
 import MainContainer from './container/MainContainer';
 import ProductPageContainer from './container/ProductPageContainer'
 // import ReviewContainer from './container/ReviewContainer'
@@ -67,6 +67,7 @@ class App extends React.Component {
             localStorage.token = resp.token
           })
         }
+        this.props.history.push('/glowup')
       }
     )
   }
@@ -77,6 +78,7 @@ class App extends React.Component {
     }, () => {
       localStorage.removeItem("token")
     })
+    this.props.history.push('/account/login')
   }
 
   render () {
@@ -103,4 +105,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
