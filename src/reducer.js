@@ -13,35 +13,25 @@ let reducer = (state, action) => {
       return { ...state, review: action.payload.review }
     case 'DELETE REVIEW':
       return { ...state, review: action.payload.review }
-    case 'ADD_TO_CART':
-      //INSIDE HOME COMPONENT
-      if (action.type === 'ADD_TO_CART') {
-        let addedItem = state.cart_items.find(cart_item => cart_item.id === action.id)
-        //check if the action id exists in the addedItems
-        let existed_item = state.addedItems.find(cart_item => action.id === cart_item.id)
-        if (existed_item) {
-          addedItem.quantity += 1
-          return {
-            ...state,
-            total: state.total + addedItem.price
-          }
-        }
-        else {
-          addedItem.quantity = 1;
-          //calculating the total
-          let newTotal = state.total + addedItem.price
-
-          return {
-            ...state,
-            addedItems: [...state.addedItems, addedItem],
-            total: newTotal
-          }
-        }
-      }
-      else {
-        return { ...state, cart: action.payload }
-      }
-
+    case 'FETCH ALL CARTS':
+      return { ...state, carts: action.payload.carts }
+    case 'FETCH CART':
+      debugger
+      return { ...state, cart: action.payload.cart }
+    case 'CREATE CART':
+      return { ...state, cart: action.payload.cart }
+    case 'CLOSE CART':
+      debugger
+      return { ...state, cart: action.payload.cart }
+    case 'ADD TO CART':
+      return { ...state, cart: action.payload.cart, cartItem: action.payload.cartItem}
+    case 'EDIT CART ITEM':
+      return { ...state, cartItem: action.payload.cartItem}
+    case 'FETCH CART ITEMS':
+      return { ...state, currentCartItems: action.payload}
+    case 'CLOSE CART':
+      debugger
+      return { ...state, currentCartItems: action.payload}
     case 'NEXT_PAGE':
       let nextIndex = state.startIndex + 10
       if (nextIndex >= state.products.length) { nextIndex = 0 }

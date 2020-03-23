@@ -13,7 +13,7 @@ const catchError = error => {
 }
 
 // Create User
-export const createUser = (user) => fetch(`${usersURL}/create`, {
+export const createUser = (user) => fetch(`${usersURL}`, {
     method: 'POST',
     headers,
     body: JSON.stringify(user)

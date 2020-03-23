@@ -7,9 +7,11 @@ class NavBar extends React.Component {
   render() {
     const { currentUser } = this.props;
     let userLink;
+    let cartLink = null;
 
     if (currentUser) {
       userLink = <button onClick={this.props.logout}>Log Out</button>
+      cartLink = <a className="nav-link" href={`/account/${currentUser.id}/cart/`}>Cart</a>
     } else {
       userLink = <a className="nav-link" href="/account/login">Login</a>
     }
@@ -33,7 +35,8 @@ class NavBar extends React.Component {
               <a className="nav-link" href="/collections/brands">Brands</a>
             </li>
             <div>
-              <a className="nav-link" href={`/account/1/cart/`}>Cart</a>
+              {/* <a className="nav-link" href={`/account/1/cart/`}>Cart</a> */}
+              {cartLink}
             </div>
             <div>
               {/* <a className="nav-link" href="/account/login">Login</a> */}

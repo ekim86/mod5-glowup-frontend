@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createCart } from '../actionCreators';
 
 
 class UserContainer extends React.Component {  
@@ -16,6 +18,14 @@ class UserContainer extends React.Component {
   login = (event) => {
     event.preventDefault()
     this.props.login(this.state)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentUserId !== this.props.currentUserId) {
+      const cartData = { user_id: this.props.currentUserId, active: true}
+      const cart = Object.assign({}, cartData)
+      this.props.createCart(cart)
+    }
   }
 
   render() {
@@ -40,4 +50,20 @@ class UserContainer extends React.Component {
   }
 }
 
-export default UserContainer;
+function msp(state, ownProps) {
+  const currentUser = ownProps.currentUser;
+  let currentUserId = null;
+  if (currentUser) {
+    currentUserId= currentUser.id;
+  }
+  return {
+    currentUserId
+  }
+}
+function mdp(dispatch) {
+  return {
+    createCart: (userId) => dispatch(createCart(userId))
+  }
+}
+
+export default connect(msp, mdp)(UserContainer);

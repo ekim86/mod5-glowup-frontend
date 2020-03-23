@@ -12,11 +12,13 @@
 // }
 
 // export { fetchProducts }
+const headers = {'Content-Type': 'application/json', 'Accepts': 'application/json'}
+const parseData = response => response.json();
 
 export const nextPageCreator = () => ( {type: 'NEXT_PAGE'} )
 export const previousPageCreator = () => ( {type: 'PREVIOUS_PAGE'} )
 
-export const addToCart = (id) => ( {type: 'ADD_TO_CART'} )
+// export const addToCart = (id) => ( {type: 'ADD_TO_CART'} )
 
 // export const addToCart= (id)=> dispatch => {
 //   return{
@@ -99,4 +101,81 @@ export const deleteReview = (reviewId) => dispatch => {
   
 }
 
+export const fetchAllCarts = (userId) => dispatch => {
+  fetch(`http://localhost:4000/users/${userId}/carts`)
+  .then(parseData)
+  .then(data => {
+    dispatch({ type: 'FETCH ALL CARTS', payload: data })
+  })
+}
 
+export const fetchCart = (cartId, userId) => dispatch => {
+  fetch(`http://localhost:4000/users/${userId}/carts/${cartId}`)
+  .then(parseData)
+  .then(data => {
+    dispatch({ type: 'FETCH CART', payload: data })
+  })
+}
+
+export const createCart = (cart) => dispatch => {
+  if (cart.user_id) {
+    fetch(`http://localhost:4000/users/${cart.user_id}/carts/`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({cart})
+    })
+    .then(parseData)
+    .then(data => {
+      dispatch({ type: 'CREATE CART', payload: data })
+    })
+  }
+}
+
+export const closeCart = (cartId, userId) => dispatch => {
+  fetch(`http://localhost:4000/users/${userId}/carts/${cartId}`, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({cartId})
+  }).then(parseData)
+  .then(data => {
+    dispatch({ type: 'CLOSE CART', payload: data })
+  })
+}
+
+export const addToCart = (cartItem, userId) => dispatch => {
+  fetch(`http://localhost:4000/users/${userId}/carts/${cartItem.cart_id}/cart_items`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({cartItem})
+  }).then(parseData)
+  .then(data => {
+    dispatch({ type: 'ADD TO CART', payload: data})
+  })
+}
+
+export const editCartItem = (cartItem, userId) => dispatch => {
+  fetch(`http://localhost:4000/users/${userId}/carts/${cartItem.cart_id}/cart_items/${cartItem.id}`, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({cartItem})
+  }).then(parseData)
+  .then(data => {
+    dispatch({ type: 'EDIT CART ITEM', payload: data})
+  })
+}
+
+export const removeCartItem = (cartItem, userId) => dispatch => {
+  fetch(`http://localhost:4000/users/${userId}/carts/${cartItem.cart_id}/cart_items/${cartItem.id}`, {
+    method: 'DELETE',
+    headers,
+    body: JSON.stringify({cartItem})
+  })
+}
+
+export const fetchCartItems = (cartId, userId) => dispatch => {
+  fetch(`http://localhost:4000/users/${userId}/carts/${cartId}/cart_items`)
+  .then(parseData)
+  .then(data => {
+    dispatch({ type: 'FETCH CART ITEMS', payload: data })
+  })
+}

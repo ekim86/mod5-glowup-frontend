@@ -12,23 +12,74 @@ require('../style.css');
 class ProductPageContainer extends React.Component {
 
   constructor(props) {
-    super(props)
-    console.log("PROPS", this.props)
+    super(props);
+    console.log("PROPS", this.props);
+    this.state = {
+      cartItem: {
+        quantity: 0,
+        product_id: this.props.productId,
+        cart: this.props.cart
+      }
+    }
   }
 
   componentDidMount() {
-    // console.log('productpageprops', this.props.match)
     const productId = this.props.match.params.productId;
     this.props.fetchProduct(productId);
     this.props.fetchReviews(productId);
-
-    // this.props.fetchProduct()
-    // this.reviewFetchHelper()
   }
 
-  handleClick = (id)=>{
-    this.props.addToCart(id);
+  changeQuantity() {
+    return (e) => {
+      if (e.target.value > 0) {
+        this.setState({
+          cartItem: {
+            quantity: e.target.value,
+            product_id: this.props.productId,
+            cart_id: this.props.userCartId
+          }
+        })
+      }
     }
+  }
+
+  handleClick = () => {
+    if (this.state.cartItem.quantity > 0) {
+      const cartItem = Object.assign({}, this.state.cartItem)
+      this.props.addToCart(cartItem, this.props.currentUserId);
+    }
+  }
+
+  renderAddToCart() {
+    let addToCartSection = null;
+    if (this.props.currentUserId) {
+      addToCartSection = <div className='product-add-container'>
+        <input
+          type='number'
+          name='quantity'
+          value={this.state.cartItem.quantity}
+          onChange={this.changeQuantity()}
+        />
+      <button className='add-to-bag btn' onClick={()=>{this.handleClick()}}>
+        add to bag
+      </button>
+      </div>
+    }
+    return addToCartSection
+  }
+
+  renderReviewForm() {
+    let reviewForm = null;
+    if (this.props.currentUserId) {
+      reviewForm = <ReviewFormNewContainer
+                      productId={this.props.productId}
+                      currentUserId={this.props.currentUserId}
+                      currentUserName={this.props.currentUserName}/
+                    >
+    }
+    
+    return reviewForm;
+  }
 
   render() {
     console.log('props in ppc', this.props)
@@ -45,7 +96,7 @@ class ProductPageContainer extends React.Component {
               <br />
               ${this.props.product.price}
             </h5>
-            <button onClick={()=>{this.handleClick(this.props.product.id)}}>add to bag</button>
+            {this.renderAddToCart()}
           <div>
             <ProductTabs>
               <div label="Details">
@@ -65,7 +116,8 @@ class ProductPageContainer extends React.Component {
       <hr></hr>
         <div>
           {/* <ReviewContainer productId={this.props.product.id} /> */}
-          <ReviewFormNewContainer productId={this.props.productId} currentUserId={this.props.currentUserId} currentUserName={this.props.currentUserName}/>
+          {/* <ReviewFormNewContainer productId={this.props.productId} currentUserId={this.props.currentUserId} currentUserName={this.props.currentUserName}/> */}
+          {this.renderReviewForm()}
           <ReviewIndex productId={this.props.product.id} currentUserId={this.props.currentUserId} />
         </div>
       </div>
@@ -80,18 +132,22 @@ function msp(state, ownProps) {
   const currentUser = ownProps.currentUser
   let currentUserId = null;
   let currentUserName = null;
+  let userCart = ownProps.currentCart;
+  let userCartId = null;
   if (currentUser) {
     currentUserId = currentUser['id'];
-    currentUserName = currentUser['first_name']
+    currentUserName = currentUser['first_name'];
+  }
+  if (userCart) {
+    userCartId = userCart.id
   }
 
   return {
-          // products: state.products,
-          // startIndex: state.startIndex,
     productId,
     product,
     currentUserId,
-    currentUserName
+    currentUserName,
+    userCartId
   }
 }
 
@@ -100,8 +156,8 @@ function mdp(dispatch) {
   return {
           // fetchProduct: (product) => dispatch(fetchProduct(product)),
     fetchProduct: (id) => dispatch(fetchProduct(id)),
-    addToCart: (id)=> dispatch(addToCart(id)),
-    fetchReviews: (productId) => dispatch(fetchReviews(productId))
+    addToCart: (cartItem, userId)=> dispatch(addToCart(cartItem, userId)),
+    fetchReviews: (productId) => dispatch(fetchReviews(productId)),
     // updateIndex: () => dispatch(nextPageCreator()) 
   }
 }

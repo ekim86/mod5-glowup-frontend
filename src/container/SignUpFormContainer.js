@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createCart } from '../actionCreators';
 
 class SignUpFormContainer extends React.Component {
   state = {
@@ -17,6 +19,14 @@ class SignUpFormContainer extends React.Component {
   createUser = (event) => {
     event.preventDefault()
     this.props.createUser(this.state)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentUserId !== this.props.currentUserId) {
+      const cartData = { user_id: this.props.currentUserId, active: true}
+      const cart = Object.assign({}, cartData)
+      this.props.createCart(cart)
+    }
   }
 
   render() {
@@ -46,4 +56,21 @@ class SignUpFormContainer extends React.Component {
   }
 }
 
-export default SignUpFormContainer;
+function msp(state, ownProps) {
+  const currentUser = ownProps.currentUser;
+  let currentUserId = null;
+  if (currentUser) {
+    currentUserId= currentUser.id;
+  }
+  return {
+    currentUserId
+  }
+}
+
+function mdp(dispatch) {
+  return {
+    createCart: (cart) => dispatch(createCart(cart))
+  }
+}
+
+export default connect(msp, mdp)(SignUpFormContainer);

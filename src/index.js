@@ -16,6 +16,9 @@ let defaultState = {
   value: '',
   cart_items: [],
   user: '',
+  cart: null,
+  carts: [],
+  currentCartItems: [],
   // rating: '',
 }
 

@@ -1,60 +1,101 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { fetchAllProducts } from '../actionCreators'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import {
+  addToCart,
+  closeCart,
+  fetchCartItems,
+  fetchAllProducts,
+  createCart,
+  fetchCart
+} from '../actionCreators';
+import CartCard from '../component/CartCard';
 // import ProductPageContainer from '../container/ProductPageContainer'
 
 class CartContainer extends React.Component {
 
   componentDidMount() {
-    this.props.fetchAllProducts()
+    const { cartId, currentUserId } = this.props;
+    this.props.fetchCart(cartId, currentUserId);
+    this.props.fetchCartItems(cartId, currentUserId);
+    this.props.fetchAllProducts();
   }
 
-//   handleAddCart = (id) => {
-//     // e.preventDefault()
-//   console.log('ADD TO CARD', )
-//   // const review = Object.assign({}, this.state)
-//   // this.props.postReview(review)
-//   console.log('WHAT DO I HAVE', this.props)
-//   fetch(`http://localhost:4000/account/${ this.props.user.id}/cart`, {
-//     method: 'PATCH',
-//     headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//     },
-//     body: JSON.stringify({
-//         rating: 'new rating',
-//         review: 'new review',
-//     })
-// })
-// }
-
-handleAddCart = () => {
-
-}
+  handleCheckout = (e) => {
+    e.preventDefault();
+    const { cartId, currentUserId } = this.props;
+    this.props.closeCart(cartId, currentUserId);
+    const cartData = { user_id: currentUserId, active: true};
+    const newCart = Object.assign({}, cartData);
+    this.props.createCart(newCart);
+  }
 
   render() {
+    let cartItemList;
+    if (this.props.products.length > 0) {
+      cartItemList = this.props.cartItems.map((cartItem, idx) => {
+        const product = this.props.products.find(product => product.id == cartItem.product_id)
+        return (
+          <CartCard
+            product={product}
+            key={idx}
+            cartItem={cartItem}
+            currentUserId={this.props.currentUserId}
+          />
+        )
+      })
+    }
 
-    // let reviews = this.props.reviews.map(review => <ReviewCard key={review.id} review={review} />)
+    let checkOutButton = null;
+
+    if (this.props.cartActive) {
+      checkOutButton = <button onClick={this.handleCheckout}>Check Out</button>
+    }
 
     return (
       <div>
         Cart Container
+        {cartItemList}
         {/* <ProductPageContainer/> */}
+        {/* <button onClick={this.handleCheckout}>Check Out</button> */}
+        {checkOutButton}
       </div>
     )
   }
 
 }
 
-function msp(state) {
+function msp(state, ownProps) {
   console.log('mspp', state)
-  return { cart: state.cart }
+
+  const currentUserId = ownProps.match.params.userId;
+  const cartId = ownProps.match.params.cartId;
+  const cartItems = state.currentCartItems;
+  const products = state.products;
+  const cart = state.cart;
+  let cartActive = true;
+  if (cart) {
+    cartActive = cart.active
+  }
+  // debugger
+  return {
+    currentUserId,
+    cartId,
+    cartItems,
+    products,
+    cartActive
+  }
 }
 
 function mdp(dispatch) {
   console.log('mdppppp', dispatch)
   return { 
+    addToCart: (cartItem) => dispatch(addToCart(cartItem)),
+    closeCart: (cart) => dispatch(closeCart(cart)),
+    fetchCartItems: (cartId, userId) => dispatch(fetchCartItems(cartId, userId)),
     fetchAllProducts: () => dispatch(fetchAllProducts()),
+    createCart: (cart) => dispatch(createCart(cart)),
+    fetchCart: (cartId, userId) => dispatch(fetchCart(cartId, userId)) 
   }
 }
 export default connect(msp, mdp)(CartContainer);
