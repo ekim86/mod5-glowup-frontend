@@ -2,6 +2,7 @@ import React from 'react';
 import '../Product.css';
 import { connect } from 'react-redux'
 import { fetchAllProducts } from '../actionCreators'
+import ReactLoading from 'react-loading';
 import ProductCard from '../component/ProductCard'
 // import BrandsContainer from '../container/BrandsContainer'
 import { nextPageCreator } from '../actionCreators';
@@ -14,6 +15,7 @@ class SkinCareContainer extends React.Component {
 
   componentDidMount() {
     // debugger
+    
     this.props.fetchAllProducts()
   }
 
@@ -25,14 +27,15 @@ class SkinCareContainer extends React.Component {
     const totalPages = Math.ceil(totalPagesFloat)
     console.log('pages', totalPages)
     return(
-      <div>
-        <div className='show-page'>
+      <div className='scc-product'>
+        <div className='product-show-page'>
+        <ReactLoading type={'cylon'} color={'#ffccff'} height={667} width={375} />
         {showProducts.map(product=>
           <ProductCard key={product.id} product={product}/>)}
           <br/>
+        <PageButtons nextIndex={this.props.nextIndex} previousIndex={this.props.previousIndex} totalPages={totalPages}/>
         </div>
         {/* <div> */}
-        <PageButtons nextIndex={this.props.nextIndex} previousIndex={this.props.previousIndex} totalPages={totalPages}/>
         {/* </div> */}
       </div>
     )

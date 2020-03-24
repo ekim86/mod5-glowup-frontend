@@ -37,12 +37,12 @@ class PageButtons extends React.Component {
       previousButtonDisable = true;
     }
     return (
-      <div>
-        <button className='showall-button-next' onClick={this.handleNextClick} disabled={nextButtonDisable}>
-          {'>> next'}
-        </button>
-        <button className='showall-button-previous' onClick={this.handlePreviousClick} disabled={previousButtonDisable}>
+      <div className='scc-button'>
+        <button onClick={this.handlePreviousClick} disabled={previousButtonDisable}>
           {'<< previous'}
+        </button>
+        <button onClick={this.handleNextClick} disabled={nextButtonDisable}>
+          {'next >>'}
         </button>
       </div>
     )

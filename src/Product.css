@@ -1,54 +1,47 @@
 body {
   display: flex;
-  padding: 2%;
   background: none;
 }
+
+/* scc product */
 
 .product-card {
   transform: scale();
-  /* display: flex; */
   text-align: center;
-  /* align-content: center; */
-  display: block;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
+  display: inline-block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  overflow: hidden;
   background: none;
-  /* color: #000; */
   font-size: 14px;
   color: #000;
   /* border: grey solid 2px; */
-  /* padding: 1rem; */
-  width: 17%;
-  height: 45%;
-  /* display: inline-grid; */
-  margin: .8% .9%;
-  /* margin:0 auto; */
-  justify-content: center;
-  float: left;
-  /* width: 33.33%; */
-  padding: 5px;
-  /* border-style: ridge; */
-  /* border-color: #fff;  */
+  padding: 1%;
+  width: 35vh;
+  height: 60vh;
 }
 
-.show-page {
+
+.product-show-page {
   text-align: center;
-  /* margin-left: 5%;
-  margin-right: 5%; */
   width: 100%;
   height: 100%;
   font-size: 12px;
-  /* transform: translate(-50%, -50%) */
 }
+
 
 .product-card-pic {
   width: 100%
 }
 
+/* product show page */
+
 div.ppc-product-info {
     font-size: 14px; 
-    padding: 30px;
-    height: 550px;
+    padding: 5vh;
+    height: 80vh;
 }
 
 div.ppc-image {
@@ -57,10 +50,9 @@ div.ppc-image {
 }
 
 div.ppc-info {
-    /* float: right; */
     justify-content: right;
     text-align: left;
-    padding: 20px;
+    padding: 10px;
     overflow:hidden;
 }
 
@@ -74,44 +66,20 @@ div.ppc-info {
   font-size: 14px;
   font-weight: bold;
   margin: 1em auto;
-  /* position:relative; */
   position: absolute;
   left: 20%;
-  /* right: 20%; */
   bottom: 0%;
-/* left: 50%;
-margin-top:50%; */
 }
 
-.showall-button-next {
+.scc-button {
   background: none;
-  border: 1px solid #fa2acd;
-  border-radius: 0px;
-  color: #000;
   display: flex;
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin: 1em auto;
-  position: absolute;
-  /* position: absolute; */
-  /* left: 20%; */
-  right: 20%;
-  bottom: 0%;
-/* left: 50%;
-margin-top:50%; */
+
 }
 
-.showall-button-next:hover {
+.button:hover {
   background: #fa2acd;
   color: #fff;
-  /* background: #fff; */
-}
-
-.showall-button-previous:hover {
-  background: #fa2acd;
-  color: #fff;
-  /* background: #fff; */
 }
 
 button {
@@ -126,9 +94,4 @@ button {
     display:inline-block;
   }
 
-  
-  button:hover {
-    background: #fa2acd;
-    color: #fff;
-  }
   

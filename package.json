@@ -10,6 +10,7 @@
     "immutable": "^3.8.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-loading": "^2.0.3",
     "react-rating": "^2.0.4",
     "react-redux": "^7.2.0",
     "react-redux-form": "^1.16.14",
