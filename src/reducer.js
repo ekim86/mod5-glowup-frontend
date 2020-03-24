@@ -34,11 +34,10 @@ let reducer = (state, action) => {
       return { ...state, currentCartItems: action.payload}
     case 'NEXT_PAGE':
       let nextIndex = state.startIndex + 10
-      if (nextIndex >= state.products.length) { nextIndex = 0 }
       return { ...state, startIndex: nextIndex }
     case 'PREVIOUS_PAGE':
       let previousIndex = state.startIndex - 10
-      if (previousIndex <= state.products.length) { previousIndex = 0 }
+      if (previousIndex < 0) { previousIndex = 0 }
       return { ...state, startIndex: previousIndex }
     default:
       return state

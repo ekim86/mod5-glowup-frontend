@@ -31,9 +31,9 @@ class NavBar extends React.Component {
             <li className="nav-item">
               <a className="nav-link" href="/collections/best-sellers">Best Sellers</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="/collections/brands">Brands</a>
-            </li>
+            </li> */}
             <div>
               {/* <a className="nav-link" href={`/account/1/cart/`}>Cart</a> */}
               {cartLink}

@@ -6,8 +6,7 @@ import ProductCard from '../component/ProductCard'
 // import BrandsContainer from '../container/BrandsContainer'
 import { nextPageCreator } from '../actionCreators';
 import { previousPageCreator } from '../actionCreators';
-import NextButton from '../component/NextButton'
-import PreviousButton from '../component/PreviousButton'
+import PageButtons from '../component/PageButtons'
 import ReviewCard from '../component/ReviewCard'
 
 class SkinCareContainer extends React.Component {
@@ -21,15 +20,16 @@ class SkinCareContainer extends React.Component {
   
   
   render(){
-    const showProducts = this.props.products.slice(this.props.startIndex, this.props.startIndex + 12) 
-    // const product_brands = this.props.products.map(product => <BrandsContainer key={product.id} product={product}/>)
+    const showProducts = this.props.products.slice(this.props.startIndex, this.props.startIndex + 10) 
+    const totalPagesFloat = this.props.products.length / 10 || 0
+    const totalPages = Math.ceil(totalPagesFloat)
+    console.log('pages', totalPages)
     return(
       <div>
         {showProducts.map(product=>
           <ProductCard key={product.id} product={product}/>)}
           <br/>
-        <NextButton nextIndex={this.props.nextIndex}/>
-        <PreviousButton previousIndex={this.props.previousIndex}/>
+        <PageButtons nextIndex={this.props.nextIndex} previousIndex={this.props.previousIndex} totalPages={totalPages}/>
       </div>
     )
   }

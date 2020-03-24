@@ -14,8 +14,9 @@ function MainContainer(props){
     <div>
       {/* <NavBar /> */}
       <h1>Glow Up</h1>
-      hellohellllo
-      <h2>{userName}</h2>
+      <h2>Time to Glow Up {userName}</h2>
+      <img src='/kbeautystepscomic.jpg' style={{width: '40%'}}/>
+
     </div>
   )
 }
