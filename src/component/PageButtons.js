@@ -38,11 +38,11 @@ class PageButtons extends React.Component {
     }
     return (
       <div>
-        <button className='button-circle' onClick={this.handleNextClick} disabled={nextButtonDisable}>
-          {'>>'}
+        <button className='showall-button-next' onClick={this.handleNextClick} disabled={nextButtonDisable}>
+          {'>> next'}
         </button>
-        <button className='button-circle' onClick={this.handlePreviousClick} disabled={previousButtonDisable}>
-          {'<<'}
+        <button className='showall-button-previous' onClick={this.handlePreviousClick} disabled={previousButtonDisable}>
+          {'<< previous'}
         </button>
       </div>
     )

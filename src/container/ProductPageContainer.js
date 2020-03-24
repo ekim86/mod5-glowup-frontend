@@ -74,8 +74,8 @@ class ProductPageContainer extends React.Component {
       reviewForm = <ReviewFormNewContainer
                       productId={this.props.productId}
                       currentUserId={this.props.currentUserId}
-                      currentUserName={this.props.currentUserName}/
-                    >
+                      currentUserName={this.props.currentUserName}
+                    />
     }
     
     return reviewForm;
@@ -83,6 +83,8 @@ class ProductPageContainer extends React.Component {
 
   render() {
     console.log('props in ppc', this.props)
+
+    if(!this.props.product) return null;
     return (
       <div>
         <div className='ppc-product-info'>

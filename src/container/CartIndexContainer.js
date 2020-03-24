@@ -13,20 +13,62 @@ class CartIndexContainer extends React.Component {
     // debugger
   }
   render() {
-    const carts = this.props.carts.map((cart, idx) => {
-      return <CartIndexItem
-      key={idx}
-      cart={cart}
-      closeCart={this.props.closeCart}
-      />
-    })
+    // const carts = this.props.carts.map((cart, idx) => {
+    //   return <CartIndexItem
+    //   key={idx}
+    //   cart={cart}
+    //   closeCart={this.props.closeCart}
+    //   />
+    // })
+
+    const openOrder = () => {
+      let order = [];
+
+      order = this.props.carts.filter((cart) => cart.active)
+
+      const orderCard = order.map((cart, idx) => {
+        return <CartIndexItem
+          key={idx}
+          cart={cart}
+          closedCart={this.props.closeCart}
+        />
+      })
+
+      return orderCard;
+    }
+
+    const orderHistory = () => {
+      let orders = [];
+
+      orders = this.props.carts.filter((cart) => !cart.active)
+
+      const orderHistoryCards = orders.map((cart, idx) => {
+        return <CartIndexItem
+          key={idx}
+          cart={cart}
+          closedCart={this.props.closeCart}
+        />
+      })
+
+      return orderHistoryCards;
+    }
     
     return (
       <div>
-          Carts:
-        <ul>
-          {carts}
-        </ul>
+        Carts:
+        <br/>
+        <div className='active-cart-container'>
+          Open Order
+          <div>
+            {openOrder()}
+          </div>
+        </div>
+        <div className='inactive-cart-container'>
+          Order History:
+          <div>
+            {orderHistory()}
+          </div>
+        </div>
       </div>
     )
   }

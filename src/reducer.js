@@ -16,22 +16,21 @@ let reducer = (state, action) => {
     case 'FETCH ALL CARTS':
       return { ...state, carts: action.payload.carts }
     case 'FETCH CART':
-      debugger
+      // debugger
       return { ...state, cart: action.payload.cart }
-    case 'CREATE CART':
-      return { ...state, cart: action.payload.cart }
+    case 'CREATE CART':  
+      return { ...state, openCart: action.payload.cart }
     case 'CLOSE CART':
-      debugger
-      return { ...state, cart: action.payload.cart }
+      return { ...state, openCart: action.payload.cart }
     case 'ADD TO CART':
       return { ...state, cart: action.payload.cart, cartItem: action.payload.cartItem}
     case 'EDIT CART ITEM':
       return { ...state, cartItem: action.payload.cartItem}
     case 'FETCH CART ITEMS':
       return { ...state, currentCartItems: action.payload}
-    case 'CLOSE CART':
-      debugger
-      return { ...state, currentCartItems: action.payload}
+    // case 'CLOSE CART':
+    //   // debugger
+    //   return { ...state, currentCartItems: action.payload}
     case 'NEXT_PAGE':
       let nextIndex = state.startIndex + 10
       return { ...state, startIndex: nextIndex }

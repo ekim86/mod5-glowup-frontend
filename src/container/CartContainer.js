@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+// import '../Cart.css';
 import {
   addToCart,
   closeCart,
   fetchCartItems,
-  fetchAllProducts,
   createCart,
   fetchCart
 } from '../actionCreators';
@@ -18,29 +18,25 @@ class CartContainer extends React.Component {
     const { cartId, currentUserId } = this.props;
     this.props.fetchCart(cartId, currentUserId);
     this.props.fetchCartItems(cartId, currentUserId);
-    this.props.fetchAllProducts();
   }
 
   handleCheckout = (e) => {
     e.preventDefault();
     const { cartId, currentUserId } = this.props;
     this.props.closeCart(cartId, currentUserId);
-    const cartData = { user_id: currentUserId, active: true};
-    const newCart = Object.assign({}, cartData);
-    this.props.createCart(newCart);
   }
 
   render() {
     let cartItemList;
-    if (this.props.products.length > 0) {
+    if (this.props.cartItems) {
       cartItemList = this.props.cartItems.map((cartItem, idx) => {
-        const product = this.props.products.find(product => product.id == cartItem.product_id)
         return (
           <CartCard
-            product={product}
+            product={cartItem.product}
             key={idx}
             cartItem={cartItem}
             currentUserId={this.props.currentUserId}
+            active={this.props.cartActive}
           />
         )
       })
@@ -54,8 +50,10 @@ class CartContainer extends React.Component {
 
     return (
       <div>
-        Cart Container
+        Your Cart
         {cartItemList}
+        <br/>
+        <br/>
         {/* <ProductPageContainer/> */}
         {/* <button onClick={this.handleCheckout}>Check Out</button> */}
         {checkOutButton}
@@ -71,18 +69,16 @@ function msp(state, ownProps) {
   const currentUserId = ownProps.match.params.userId;
   const cartId = ownProps.match.params.cartId;
   const cartItems = state.currentCartItems;
-  const products = state.products;
   const cart = state.cart;
   let cartActive = true;
   if (cart) {
     cartActive = cart.active
   }
-  // debugger
+
   return {
     currentUserId,
     cartId,
     cartItems,
-    products,
     cartActive
   }
 }
@@ -93,7 +89,6 @@ function mdp(dispatch) {
     addToCart: (cartItem) => dispatch(addToCart(cartItem)),
     closeCart: (cart) => dispatch(closeCart(cart)),
     fetchCartItems: (cartId, userId) => dispatch(fetchCartItems(cartId, userId)),
-    fetchAllProducts: () => dispatch(fetchAllProducts()),
     createCart: (cart) => dispatch(createCart(cart)),
     fetchCart: (cartId, userId) => dispatch(fetchCart(cartId, userId)) 
   }

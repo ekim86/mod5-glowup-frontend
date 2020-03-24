@@ -10,43 +10,65 @@ class NavBar extends React.Component {
     let cartLink = null;
 
     if (currentUser) {
-      userLink = <button onClick={this.props.logout}>Log Out</button>
-      cartLink = <a className="nav-link" href={`/account/${currentUser.id}/cart/`}>Cart</a>
+      userLink = <a href="/account/login" onClick={this.props.logout}>Log Out👋</a>
+      cartLink = <a href={`/account/${currentUser.id}/cart/`}>Cart🛒</a>
     } else {
-      userLink = <a className="nav-link" href="/account/login">Login</a>
+      userLink = <a href="/account/login">Login</a>
     }
 
     return (
-  
-      <nav className="navbar navbar-expand-lg sticky bg-white">
-  
-        <div className="collapse navbar-collapse nav-bar" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <div>
-              <a className="navbar-brand" href="/glowup">GLOW UP</a>
+      // <div className='nav-main'>
+      //   <div>
+      //   <a className="nav-bar nav-glowup" href="/glowup">GLOW UP</a>
+      //   </div>
+      //   <div className='nav-options'>
+      //   <a href="/collections/skincare">Shop All</a>
+      //   <a href="/collections/best-sellers">Best Sellers</a>
+      //   </div>
+      //   <div className="nav-login">
+      //     {cartLink}
+      //     {userLink}
+      //   </div>
+      // </div>
+
+
+      <nav className="navbar nav-bar navbar-expand-lg navbar-light tamagotchi-navbar sticky">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="">
+            <a className="nav-bar-glowup" href="/glowup">GLOW UP</a>
+          </div>
+          <ul className="navbar-nav mr-auto nav-options">
+
+
+            <div className='nav-bar-center'>
+
+              <div className="">
+                <a className='' href="/collections/skincare">Shop All</a>
+              </div>
+
+              <div className="">
+                <a href="/collections/best-sellers">Best Sellers</a>
+              </div>
+
+              <div className="">
+                <a href="/collections/brands">Brands</a>
+              </div>
             </div>
-            <li className="nav-item active">
-              <a className="nav-link" href="/collections/skincare">Shop All</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/collections/best-sellers">Best Sellers</a>
-            </li>
-            {/* <li className="nav-item">
-              <a className="nav-link" href="/collections/brands">Brands</a>
-            </li> */}
-            <div>
-              {/* <a className="nav-link" href={`/account/1/cart/`}>Cart</a> */}
-              {cartLink}
-            </div>
-            <div>
-              {/* <a className="nav-link" href="/account/login">Login</a> */}
-              {userLink}
-            </div>
+
+
           </ul>
-  
+          <div className="nav-bar-login">
+            {cartLink}
+            {userLink}
+          </div>
         </div>
-  
+
       </nav>
+
+
     )
   }
 

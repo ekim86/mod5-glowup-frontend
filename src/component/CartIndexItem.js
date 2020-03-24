@@ -15,31 +15,25 @@ class CartIndexItem extends React.Component {
       cartLink = <div className='active-cart'>
         <div>
           <Link to={`/account/${cart.user_id}/cart/${cart.id}`}>
-            Open Order:
-            View Cart
-            <br/>
+            View Cart {cart.id}
+            {/* <br/>
             Cart ID:
-            {cart.id}
-            <br/>
+            {cart.id} */}
           </Link>
         </div>
       </div>
     } else {
       cartLink = <div className='inactive-cart'>
-        Order History:
-        <Link to={`/account/${cart.user_id}/cart/${cart.id}`}>Cart</Link>
+        <Link to={`/account/${cart.user_id}/cart/${cart.id}`}>Cart {cart.id}</Link>
       </div>
     }
 
     return (
       <div>
-        Cart Index Container
-        {cart.active}
         {cartLink}
       </div>
     )
   }
-
 }
 
 export default CartIndexItem;

@@ -8,17 +8,12 @@
   text-align: center;
   display: block; 
   align-content: space-evenly;
-  
-  /* padding: 8px; */
-}
-
-nav.sticky {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  /* background-color: green;
-  border: 2px solid #4CAF50;
-  how come it's not sticky????? */
+  /* position: fixed; */
+  display: inline-block;
+  background-position: center;
+  border: 2px solid #ff88ff;
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
 
 .nav-bar a {
@@ -36,17 +31,32 @@ nav.sticky {
   color: #fa2acd;
 }
 
-.nav-bar-logo {
-  align-content: left;
-  float: left;
-}
-
-.nav-bar-middle {
-  align-content: center;
-  float: center;
-}
 
 .nav-bar-login {
+  display: flex;
+  justify-content: space-evenly;
   align-content: right;
   float: right;
+  width: 40vh;
+  background: #b1ff33;
+  overflow: auto;
 }
+
+.nav-bar-glowup {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: left;
+  float: left;
+  width: 25vh;
+  background: #33ffcc;
+  overflow: auto;
+}
+
+.nav-bar-center {
+display:flex;
+justify-content: space-evenly;
+background: #99ccff;
+width: 70vh;
+overflow: auto;
+}
+

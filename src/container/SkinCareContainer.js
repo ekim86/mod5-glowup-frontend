@@ -26,10 +26,14 @@ class SkinCareContainer extends React.Component {
     console.log('pages', totalPages)
     return(
       <div>
+        <div className='show-page'>
         {showProducts.map(product=>
           <ProductCard key={product.id} product={product}/>)}
           <br/>
+        </div>
+        {/* <div> */}
         <PageButtons nextIndex={this.props.nextIndex} previousIndex={this.props.previousIndex} totalPages={totalPages}/>
+        {/* </div> */}
       </div>
     )
   }

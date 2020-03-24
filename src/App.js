@@ -84,7 +84,6 @@ class App extends React.Component {
     }, () => {
       localStorage.removeItem("token")
     })
-    this.props.history.push('/account/login')
   }
 
   render () {

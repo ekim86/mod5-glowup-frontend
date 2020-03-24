@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import '../Cart.css';
 import { editCartItem, fetchProduct, removeCartItem } from '../actionCreators';
 class CartCard extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class CartCard extends React.Component {
   }
 
   handleSubmit = (e) => {
+    debugger
     e.preventDefault();
     const cartItem = Object.assign({}, this.state);
     this.props.editCartItem(cartItem, this.props.currentUserId)
@@ -36,24 +38,45 @@ class CartCard extends React.Component {
   }
 
   render() {
+    // debugger
+    let quantity = this.state.quantity;
+
+    if (this.props.active) {
+      quantity = <input
+                  type='number'
+                  name='quantity'
+                  value={this.state.quantity}
+                  onChange={this.changeQuantity()}
+                  style={{width: '5vh'}}
+                />
+    }
+
     return (
       <div>
         <form>
-          <div>
+          <div className='cart-detail'>
             <Link to={`/collections/skincare/${this.props.cartItem.product_id}`}>
-              Product: {this.props.product.name}
+              <img src={this.props.product.img_url} className='cart-image'/>
             </Link>
+            <br/>
+            <div className='cart-productname-quantity'>
+              <div>
+                {this.props.product.name}
+              </div>
+              <br/>
+              <div>
+                Quantity: {quantity}
+              </div>
+              <div>
+                Price: ${this.props.product.price.toFixed(2)}
+              </div>
+              <br/>
+              <button className={'cart-button' + (this.props.active ? " " : " disabled")} onClick={this.handleSubmit} disabled={!this.props.active}>Update</button>
+              <button className={'cart-button' + (this.props.active ? " " : " disabled")} onClick={this.handleDelete}>Remove Item</button>
+            </div>
           </div>
-          <div>Quantity: {this.props.cartItem.quantity}</div>
-          <input
-            type='number'
-            name='quantity'
-            value={this.state.quantity}
-            onChange={this.changeQuantity()}
-          />
-          <button onClick={this.handleSubmit}>Update</button>
-          <button onClick={this.handleDelete}>Remove Item</button>
         </form>
+        <hr/>
       </div>
     )
   }
