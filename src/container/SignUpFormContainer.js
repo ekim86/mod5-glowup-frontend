@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createCart } from '../actionCreators';
+import '../User.css'
 
 class SignUpFormContainer extends React.Component {
   state = {
@@ -31,23 +32,27 @@ class SignUpFormContainer extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className='before-signup'>
         <h1>Sign Up</h1>
-        <form className='signup-card'>
+        <form className='signup'>
           <label>First Name: </label>
-          <input name="first_name" type='text' value={this.state.first_name} onChange={this.updateUser} />
+          <input name="first_name" placeholder='First name' type='text' value={this.state.first_name} onChange={this.updateUser} />
+          <br/>
           <br/>
           <label>Last Name: </label>
-          <input name="last_name" type='text' value={this.state.last_name} onChange={this.updateUser} />
+          <input name="last_name" placeholder='Last Name' type='text' value={this.state.last_name} onChange={this.updateUser} />
           <br/>
-          <label>Email: </label>
-          <input name="email_address" type='text' value={this.state.email_address} onChange={this.updateUser} />
+          <br/>
+          <label>Email Address: </label>
+          <input name="email_address" placeholder='Email' type='text' value={this.state.email_address} onChange={this.updateUser} />
+          <br/>
           <br/>
           <label>Password: </label>
-          <input name="password" type='password' value={this.state.password} onChange={this.updateUser} />
+          <input name="password" placeholder='Password' type='password' value={this.state.password} onChange={this.updateUser} />
           <br/>
-          <div className='signup-button-div'>
-          <button className='signup-button' onClick={this.createUser}>Sign Up</button>
+          <br/>
+          <div className='signup-link'>
+          <a href='/' className='signup-button' onClick={this.createUser}>Sign Up</a>
           <Link to="login">Log In</Link>
           </div>
         </form>

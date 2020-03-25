@@ -94,4 +94,50 @@ button {
     display:inline-block;
   }
 
+  button.add-to-bag-btn {
+    background: none;
+    border: 1px solid #fa2acd;
+    border-radius: 0px;
+    color: #000;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 1em auto;
+    display:inline-block;
+  }
+
+  button.add-to-bag-btn:hover {
+    background: #fa2acd;
+    color: #fff;
+  }
+
+  input {
+    width: 40vh;
+    font-size: 16px;
+    color: #fa2acd;
+  }
   
+  input:focus {
+    outline: 2px solid #fa2acd86;
+    background-color: none;
+  }
+
+  textarea:focus {
+    outline: 2px solid #fa2acd86;
+    background-color: none;
+  }
+  
+  label {
+    display: flex;
+    margin-bottom: 0rem
+  }
+  
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fa2acd65;
+    ;
+    opacity: 1; /* Firefox */
+  }
+  
+  .ppc-quantity {
+    width: 6vh;
+  }

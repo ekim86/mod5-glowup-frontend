@@ -55,13 +55,15 @@ class ProductPageContainer extends React.Component {
     if (this.props.currentUserId) {
       addToCartSection = <div className='product-add-container'>
         <input
+        className ='ppc-quantity'
           type='number'
           name='quantity'
           value={this.state.cartItem.quantity}
           onChange={this.changeQuantity()}
         />
-      <button className='add-to-bag btn' onClick={()=>{this.handleClick()}}>
-        add to bag
+        <br/>
+      <button className='add-to-bag-btn' onClick={()=>{this.handleClick()}}>
+        Add to Cart
       </button>
       </div>
     }

@@ -32,7 +32,7 @@ class UserContainer extends React.Component {
   render() {
     return(
       <div className='before-login'>
-        <h1>Sign In</h1>
+        <h1>Login</h1>
         <form className='login login-card'>
           <label>Email Address</label>
           <input name="email_address" placeholder='Email' type='text' value={this.state.email_address} onChange={this.updateUser} />
