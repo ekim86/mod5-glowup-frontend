@@ -14,8 +14,18 @@ class CartCard extends React.Component {
     }
   }
 
+  componentWillUpdate(nextProps) {
+    if (nextProps.cartItem.id != this.props.cartItem.id) {
+      this.setState({
+        quantity: nextProps.cartItem.quantity,
+        product_id: nextProps.cartItem.product_id,
+        cart_id: nextProps.cartItem.cart_id,
+        id: nextProps.cartItem.id
+      })
+    }
+  }
+
   handleSubmit = (e) => {
-    // debugger
     e.preventDefault();
     const cartItem = Object.assign({}, this.state);
     this.props.editCartItem(cartItem, this.props.currentUserId)
@@ -38,8 +48,7 @@ class CartCard extends React.Component {
   }
 
   render() {
-    // debugger
-    let quantity = this.state.quantity;
+    let quantity = this.props.cartItem.quantity;
 
     if (this.props.active) {
       quantity = <input

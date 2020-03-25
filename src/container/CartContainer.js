@@ -28,8 +28,9 @@ class CartContainer extends React.Component {
 
   render() {
     let cartItemList;
-    if (this.props.cartItems) {
+    if (this.props.cartItems.length > 0) {
       cartItemList = this.props.cartItems.map((cartItem, idx) => {
+        console.log('Cart item passed in through CartContainer', cartItem.id)
         return (
           <CartCard
             product={cartItem.product}

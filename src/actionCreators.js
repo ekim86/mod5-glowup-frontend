@@ -178,6 +178,9 @@ export const removeCartItem = (cartItem, userId) => dispatch => {
     method: 'DELETE',
     headers,
     body: JSON.stringify({cartItem})
+  }).then(parseData)
+  .then(data => {
+    dispatch({ type: 'REMOVE CART ITEM', payload: data })
   })
 }
 

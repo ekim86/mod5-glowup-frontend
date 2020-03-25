@@ -36,12 +36,12 @@ let reducer = (state, action) => {
     case 'FETCH CART ITEMS':
       return { ...state, currentCartItems: action.payload }
     case 'REMOVE CART ITEM':
-      // debugger
-      return { ...state, currentCartItems: state.currentCartItems.filter(currentCartItem => currentCartItem.id != action.payload.currentCartItem.id) }
-
-    // case 'CLOSE CART':
-    //   // debugger
-    //   return { ...state, currentCartItems: action.payload}
+      const removedCartItem = action.payload.cartItem;
+      const allCartItems = state.currentCartItems.filter(cartItem => cartItem.id != removedCartItem.id)
+      return {
+        ...state,
+        currentCartItems: allCartItems
+      }
     case 'NEXT_PAGE':
       let nextIndex = state.startIndex + 10
       return { ...state, startIndex: nextIndex }
