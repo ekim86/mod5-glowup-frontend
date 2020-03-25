@@ -15,7 +15,7 @@ class CartCard extends React.Component {
   }
 
   handleSubmit = (e) => {
-    debugger
+    // debugger
     e.preventDefault();
     const cartItem = Object.assign({}, this.state);
     this.props.editCartItem(cartItem, this.props.currentUserId)

@@ -93,12 +93,11 @@ export const deleteReview = (reviewId) => dispatch => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-  //   body: JSON.stringify({reviewId})
-  // }).then(res => res.json())
-  // .then(data => {
-  //   dispatch({type: 'DELETE REVIEW', payload: data})
+    body: JSON.stringify({reviewId})
+  }).then(res => res.json())
+  .then(data => {
+    dispatch({type: 'DELETE REVIEW', payload: data})
   })
-  
 }
 
 // export function deleteReview(reviewId) {
@@ -181,6 +180,24 @@ export const removeCartItem = (cartItem, userId) => dispatch => {
     body: JSON.stringify({cartItem})
   })
 }
+
+// export const removeCartItem = (cartItem, userId) => dispatch => {
+//   // debugger
+//   fetch(`http://localhost:4000/users/${userId}/carts/${cartItem.cart_id}/cart_items/${cartItem.id}`, {
+//     method: 'DELETE',
+//     headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({cartItem})
+//   }).then(res => res.json())
+//   .then(data => {
+//     dispatch({type: 'REMOVE CART ITEM', payload: data})
+//   })
+// }
+
+
+
 
 export const fetchCartItems = (cartId, userId) => dispatch => {
   fetch(`http://localhost:4000/users/${userId}/carts/${cartId}/cart_items`)

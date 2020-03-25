@@ -29,7 +29,7 @@ class ReviewIndex extends React.Component {
 
 function msp(state, ownProps) {
   const productId = ownProps.productId;
-  const reviews = state.reviews || [];
+  const reviews = state.reviews;
   return {
     productId,
     reviews

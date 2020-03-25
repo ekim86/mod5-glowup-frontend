@@ -8,30 +8,37 @@ let reducer = (state, action) => {
     case 'FETCH REVIEWS':
       return { ...state, reviews: action.payload }
     case 'POST REVIEW':
-      return { ...state, review: action.payload.review }
+      const review = action.payload.review
+      const reviews = [...state.reviews, review]
+      // debugger
+      return {
+        ...state,
+        review,
+        reviews
+      }
     case 'EDIT REVIEW':
       return { ...state, review: action.payload.review }
     case 'DELETE REVIEW':
-      return { ...state, review: action.payload.review }
-    // case 'DELETE_REVIEW':
-    //   return { ...state,
-		// 		reviews: state.reviews.filter(review => review.id != action.review.id)
-		// 	}
+      return { ...state, reviews: state.reviews.filter(review => review.id != action.payload.review.id) }
     case 'FETCH ALL CARTS':
       return { ...state, carts: action.payload.carts }
     case 'FETCH CART':
       // debugger
       return { ...state, cart: action.payload.cart }
-    case 'CREATE CART':  
+    case 'CREATE CART':
       return { ...state, openCart: action.payload.cart }
     case 'CLOSE CART':
       return { ...state, openCart: action.payload.cart }
     case 'ADD TO CART':
-      return { ...state, cart: action.payload.cart, cartItem: action.payload.cartItem}
+      return { ...state, cart: action.payload.cart, cartItem: action.payload.cartItem }
     case 'EDIT CART ITEM':
-      return { ...state, cartItem: action.payload.cartItem}
+      return { ...state, cartItem: action.payload.cartItem }
     case 'FETCH CART ITEMS':
-      return { ...state, currentCartItems: action.payload}
+      return { ...state, currentCartItems: action.payload }
+    case 'REMOVE CART ITEM':
+      // debugger
+      return { ...state, currentCartItems: state.currentCartItems.filter(currentCartItem => currentCartItem.id != action.payload.currentCartItem.id) }
+
     // case 'CLOSE CART':
     //   // debugger
     //   return { ...state, currentCartItems: action.payload}

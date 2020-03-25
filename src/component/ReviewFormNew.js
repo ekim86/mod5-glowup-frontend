@@ -28,6 +28,7 @@ class ReviewFormNew extends React.Component {
     const review = Object.assign({}, this.state)
     this.props.action(review)
     console.log('SUBMITFORM', this.props.history)
+    document.getElementById("reviewForm").reset();
   }
 
   onStarClick(nextValue, prevValue, name) {
@@ -41,7 +42,7 @@ class ReviewFormNew extends React.Component {
     return (
       <div>
         {userName}, Write a Review
-        <form onSubmit={this.handleSubmit}>
+        <form id='reviewForm' onSubmit={this.handleSubmit}>
           {/* <label>User: {this.props.currentUserName} </label> */}
           <StarRatingComponent
             name="rate1"
@@ -50,11 +51,11 @@ class ReviewFormNew extends React.Component {
             onStarClick={this.onStarClick.bind(this)}
           />
           {/* <input type="textarea" name="rating" placeholder='Rating 1-5' onChange={this.changeHandler('rating')} /> */}
-          <br/>
+          <br />
           <textarea className='write-review' type='textarea' name="review" placeholder='Review' onChange={this.changeHandler('review')} />
           <br />
           <button>Submit</button>
-          <hr/>
+          <hr />
         </form>
       </div>
     )
