@@ -25,7 +25,9 @@ class ReviewCardNew extends React.Component {
         />
         <div>
           Review: {review.review}
+        <hr/>
         </div>
+        <hr/>
       </div>
     }
 

@@ -13,6 +13,10 @@ let reducer = (state, action) => {
       return { ...state, review: action.payload.review }
     case 'DELETE REVIEW':
       return { ...state, review: action.payload.review }
+    // case 'DELETE_REVIEW':
+    //   return { ...state,
+		// 		reviews: state.reviews.filter(review => review.id != action.review.id)
+		// 	}
     case 'FETCH ALL CARTS':
       return { ...state, carts: action.payload.carts }
     case 'FETCH CART':

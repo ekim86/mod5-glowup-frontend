@@ -2,7 +2,6 @@ import React from 'react';
 import '../Product.css';
 import { connect } from 'react-redux'
 import { fetchAllProducts } from '../actionCreators'
-import ReactLoading from 'react-loading';
 import ProductCard from '../component/ProductCard'
 // import BrandsContainer from '../container/BrandsContainer'
 import { nextPageCreator } from '../actionCreators';
@@ -29,7 +28,6 @@ class SkinCareContainer extends React.Component {
     return(
       <div className='scc-product'>
         <div className='product-show-page'>
-        <ReactLoading type={'cylon'} color={'#ffccff'} height={667} width={375} />
         {showProducts.map(product=>
           <ProductCard key={product.id} product={product}/>)}
           <br/>
@@ -52,6 +50,7 @@ function msp(state) {
   return {
     products: state.products,
     startIndex: state.startIndex,
+
   }
 }
 

@@ -50,7 +50,9 @@ class ReviewCard extends React.Component{
   render(){
     console.log('props reviewwwwcard', this.props)
     return (
+
       <div>
+      REVIEW CARD AM I USING THIS STILLLLL?
         <div className='reviewer'>
           {this.props.review.user.first_name}<br />
   
@@ -60,14 +62,14 @@ class ReviewCard extends React.Component{
             starCount={5}
             value={this.props.review.rating}
           />
-          <div>
-            Review: <input type='textarea' value={this.props.review.review}/>
+        </div>
+          <div className='review-content'>
+            <input type='textarea' value={this.props.review.review}/>
             <br />
-            <button onClick={()=>this.handleEdit(this.props.review.id)}>Update</button>
-            <button onClick={() => this.handleDelete(this.props.review.id)}>Delete</button>
+            <button className='review-update' onClick={()=>this.handleEdit(this.props.review.id)}>Update</button>
+            <button className='review-update' onClick={() => this.handleDelete(this.props.review.id)}>Delete</button>
             <hr></hr>
           </div>
-        </div>
       </div>
     )
   }

@@ -101,6 +101,16 @@ export const deleteReview = (reviewId) => dispatch => {
   
 }
 
+// export function deleteReview(reviewId) {
+// 	return(dispatch) =>{
+// 		fetch(`http://localhost:4000/reviews/${reviewId}`, {method: 'DELETE'})
+// 		.then(resp => resp.json())
+// 		.then(review => dispatch({type: 'DELETE_REVIEW', review}))
+// 	}
+// }
+
+
+
 export const fetchAllCarts = (userId) => dispatch => {
   fetch(`http://localhost:4000/users/${userId}/carts`)
   .then(parseData)

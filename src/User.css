@@ -1,0 +1,51 @@
+body {
+}
+
+.before-login{
+  margin-top: 8vh;
+
+}
+
+.login {
+  transform: scale();
+  text-align: center;
+  display: inline-block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  background: none;
+  font-size: 14px;
+  color: #000;
+  border: grey solid 2px;
+  padding: 3% 3% 5% 3%;
+  width: 50vh;
+  height: 35vh; 
+}
+
+.login-link {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 16px;
+}
+
+
+.login-link a {
+  color: #000;
+  text-align: center;
+}
+
+.login-link a:hover {
+  color: #fa2acd;
+}
+
+input {
+  width: 40vh;
+  font-size: 16px;
+  color: #fa2acd;
+}
+
+label {
+  display: flex;
+  margin-bottom: 0rem
+}

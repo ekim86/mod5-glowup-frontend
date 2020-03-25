@@ -1,5 +1,6 @@
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import '../Review.css'
 
 class ReviewFormNew extends React.Component {
   constructor(props) {
@@ -33,27 +34,27 @@ class ReviewFormNew extends React.Component {
     this.setState({ rating: nextValue });
   }
 
-  render () {
+  render() {
     console.log('props ReviewFormNew', this.props)
+    const userName = this.props.currentUserName.toUpperCase()
 
     return (
       <div>
-        ReviewFormNew
-        Write a review
-        <form onSubmit={this.handleSubmit}> 
-          <label>User: {this.props.currentUserName} </label>
-            <br/>
-            <StarRatingComponent
+        {userName}, Write a Review
+        <form onSubmit={this.handleSubmit}>
+          {/* <label>User: {this.props.currentUserName} </label> */}
+          <StarRatingComponent
             name="rate1"
             starCount={5}
             value={this.state.rating}
             onStarClick={this.onStarClick.bind(this)}
           />
-          <br/>
           {/* <input type="textarea" name="rating" placeholder='Rating 1-5' onChange={this.changeHandler('rating')} /> */}
-          <input type='textarea' name="review" placeholder='Review' onChange={this.changeHandler('review')} />
           <br/>
+          <textarea className='write-review' type='textarea' name="review" placeholder='Review' onChange={this.changeHandler('review')} />
+          <br />
           <button>Submit</button>
+          <hr/>
         </form>
       </div>
     )

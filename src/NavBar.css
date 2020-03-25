@@ -11,9 +11,18 @@
   /* position: fixed; */
   display: inline-block;
   background-position: center;
-  border: 2px solid #ff88ff;
+  border-bottom: 1px solid #fa2acd52;
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  /* background-size: 1800% 100%; */
 }
 
 .nav-bar a {
@@ -38,7 +47,7 @@
   align-content: right;
   float: right;
   width: 40vh;
-  background: #b1ff33;
+  background: none;
   overflow: auto;
 }
 
@@ -48,14 +57,14 @@
   align-content: left;
   float: left;
   width: 25vh;
-  background: #33ffcc;
+  background: none;
   overflow: auto;
 }
 
 .nav-bar-center {
 display:flex;
 justify-content: space-evenly;
-background: #99ccff;
+background: none;
 width: 70vh;
 overflow: auto;
 }
