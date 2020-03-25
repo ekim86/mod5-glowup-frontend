@@ -15,19 +15,19 @@ class ReviewCardNew extends React.Component {
     } else {
       reviewFormat =
       <div className='reviewer'>
-        {review.user.first_name}
+        
+        <div className='reviewer-info'>
+          {review.user.first_name}
         <br />
-
         <StarRatingComponent
           name='rate1'
           starCount={5}
           value={review.rating}
         />
-        <div>
-          Review: {review.review}
-        <hr/>
         </div>
-        <hr/>
+        <div className='reviewer-review'>
+          Review: {review.review}
+          </div>
       </div>
     }
 

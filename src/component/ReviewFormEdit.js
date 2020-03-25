@@ -55,7 +55,8 @@ class ReviewFormNew extends React.Component {
               starCount={5}
               value={this.state.rating}
               onStarClick={this.onStarClick.bind(this)}
-            /><br />
+            />
+            <br />
             <textarea
               className='review-update'
               name="review"
@@ -63,12 +64,10 @@ class ReviewFormNew extends React.Component {
               onChange={this.changeHandler('review')}
               value={this.state.review}
             />
-            <br />
             <button className='review-update' onClick={this.handleSubmit}>Edit</button>
             <button className='review-update' onClick={this.handleDelete}>Delete</button>
           </form>
         </div>
-        <hr/>
       </div>
     )
   }
