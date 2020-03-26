@@ -61,27 +61,27 @@ class CartCard extends React.Component {
     }
 
     return (
-      <div>
+      <div className='cart'>
         <form>
           <div className='cart-detail'>
             <Link to={`/collections/skincare/${this.props.cartItem.product_id}`}>
               <img src={this.props.product.img_url} className='cart-image'/>
             </Link>
-            <br/>
-            <div className='cart-productname-quantity'>
-              <div>
+            <div className='cart-product-info'>
+              <div className='cart-stuff'>
                 {this.props.product.name}
-              </div>
+              {/* </div> */}
               <br/>
-              <div>
-                Quantity: {quantity}
-              </div>
-              <div>
                 Price: ${this.props.product.price.toFixed(2)}
-              </div>
+              {/* <div> */}
               <br/>
+                Quantity: {quantity}
+                <br/>
+              {/* </div> */}
+              {/* <div> */}
               <button className={'cart-button' + (this.props.active ? " " : " disabled")} onClick={this.handleSubmit} disabled={!this.props.active}>Update</button>
               <button className={'cart-button' + (this.props.active ? " " : " disabled")} onClick={this.handleDelete}>Remove Item</button>
+              </div>
             </div>
           </div>
         </form>

@@ -5,8 +5,9 @@ body {
   div.reviewer {
     display: flex;
     justify-content: space-between;
-    background: #ccffd3;
+    background: none;
     padding: 1rem 1rem .5rem 1rem;
+    width: 95%;
 
     /* width: 100vh; */
     /* overflow:hidden; */
@@ -16,31 +17,31 @@ body {
   div.reviewer-info {
     display: flex;
     /* justify-content:; */
-    background: #fffacc;
+    background: none;
     width: 20%;
     padding: 1rem;
     /* width: 100vh; */
     /* overflow:hidden; */
   }
   
-  div.reviewer-review {
+  .reviewer-review {
     display: flex;
-    /* justify-content: center; */
-    background: #ffedcc;
+    background: none;
     width: 80%;
     padding: 1rem;
-    /* width: 100vh; */
-    /* overflow:hidden; */
   }
 
   div.review-form {
     display: flex;
-    justify-content: center;
-    background: #99ccff;
-    padding: 1rem 1rem .5rem 1rem;
+    width: 100%;
     border: 1px solid #fa2acd36;
-    /* width: 100vh; */
-    /* overflow:hidden; */
+    padding: 1rem 1rem .5rem 1rem;
+  }
+
+  .review-form {
+    display: flex;
+    width: 100%;
+    border: 1px solid #fa2acd36;
   }
 
   div.review {
@@ -61,7 +62,7 @@ body {
   
   label {
     display: flex;
-    align: center;
+    /* align: center; */
     /* margin-bottom: 0rem */
   }
 
@@ -70,21 +71,29 @@ body {
     color: #fff;
   }
 
-  button.review-update {
+  button.review-update-btn {
     font-size: 10px;
     width: 7vh;
   
   }
 
   textarea.review-update {
-    width: 100vh;
-    height: 10vh;
     display: flex;
-    justify-content: center;
+    width: 100%;
+    justify-content: right;
+    padding: 1rem;
     font-size: 14px;
     color: #fa2acd;
     resize:none;
     border: 1px solid #fa2acd36;
+  }
+
+.text-reviewer-review {
+    display: flex;
+    /* justify-content: center; */
+    background: none;
+    width: 80%;
+    padding: 1rem;
   }
 
 

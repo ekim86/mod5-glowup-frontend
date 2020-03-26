@@ -52,24 +52,37 @@ class CartIndexContainer extends React.Component {
 
       return orderHistoryCards;
     }
-    
+
     return (
-      <div>
-        Carts:
+        <div className='before-cart'>
+        <h2>
+          Carts
+          </h2>
+        <br />
+        <div className='cart-box active-cart-container'>
+          <h4>
+            [Current Order]
+            </h4>
+          <div>
+            <h5>
+              {openOrder()}
+              </h5>
+          </div>
+        </div>
         <br/>
-        <div className='active-cart-container'>
-          Open Order
+        <br/>
+        <br/>
+        <div className='cart-box inactive-cart-container'>
+          <h4>
+            [Order History]
+            </h4>
           <div>
-            {openOrder()}
-          </div>
-        </div>
-        <div className='inactive-cart-container'>
-          Order History:
-          <div>
+            <h5>
             {orderHistory()}
+            </h5>
           </div>
         </div>
-      </div>
+        </div>
     )
   }
 }

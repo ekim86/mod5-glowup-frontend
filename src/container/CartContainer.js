@@ -51,7 +51,9 @@ class CartContainer extends React.Component {
 
     return (
       <div>
+        <h1>
         Your Cart
+        </h1>
         {cartItemList}
         <br/>
         <br/>

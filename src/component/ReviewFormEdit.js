@@ -46,9 +46,8 @@ class ReviewFormNew extends React.Component {
 
     return (
       <div>
-        <div className='review-form'>
-
-          <form>
+        <div className='reviewer'>
+          <div className='reviewer-info'>
             {this.props.review.user.first_name}
             <StarRatingComponent
               name="rate1"
@@ -56,17 +55,24 @@ class ReviewFormNew extends React.Component {
               value={this.state.rating}
               onStarClick={this.onStarClick.bind(this)}
             />
-            <br />
-            <textarea
-              className='review-update'
-              name="review"
-              placeholder='Review'
-              onChange={this.changeHandler('review')}
-              value={this.state.review}
-            />
-            <button className='review-update' onClick={this.handleSubmit}>Edit</button>
-            <button className='review-update' onClick={this.handleDelete}>Delete</button>
-          </form>
+          </div>
+          <div className='reviewer-review'>
+            {/* <form className='review-form'> */}
+              <textarea
+                className='review-update'
+                name="review"
+                placeholder='Review'
+                onChange={this.changeHandler('review')}
+                value={this.state.review}
+              />
+            {/* </form> */}
+          </div>
+          <div>
+          <button className='review-update-btn' onClick={this.handleSubmit}>Edit</button>
+          <button className='review-update-btn' onClick={this.handleDelete}>Delete</button>
+
+          </div>
+          {/* </div> */}
         </div>
       </div>
     )

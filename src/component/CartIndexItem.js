@@ -14,7 +14,7 @@ class CartIndexItem extends React.Component {
     if (cart.active) {
       cartLink = <div className='active-cart'>
         <div>
-          <Link to={`/account/${cart.user_id}/cart/${cart.id}`}>
+          <Link className='cart-link' to={`/account/${cart.user_id}/cart/${cart.id}`}>
             View Cart {cart.id}
             {/* <br/>
             Cart ID:
@@ -24,7 +24,7 @@ class CartIndexItem extends React.Component {
       </div>
     } else {
       cartLink = <div className='inactive-cart'>
-        <Link to={`/account/${cart.user_id}/cart/${cart.id}`}>Cart {cart.id}</Link>
+        <Link className='cart-link' to={`/account/${cart.user_id}/cart/${cart.id}`}>Cart {cart.id}</Link>
       </div>
     }
 
