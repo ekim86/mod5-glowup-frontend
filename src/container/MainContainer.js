@@ -1,6 +1,7 @@
 import React from 'react';
 // import NavBar from '../component/NavBar';
 // import { Link } from 'react-router-dom';
+import '../KBeautySteps.css'
 
 
 function MainContainer(props) {
@@ -23,7 +24,8 @@ function MainContainer(props) {
         </h5>
       <img src='/kbeautystepscomic.jpg' style={{ width: '60%' }} />
 
-    </div>
+
+</div>
   )
 }
 

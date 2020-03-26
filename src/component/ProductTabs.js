@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import ProductTab from './ProductTab';
 
 class ProductTabs extends Component {

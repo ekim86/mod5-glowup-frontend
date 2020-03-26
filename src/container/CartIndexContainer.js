@@ -56,12 +56,12 @@ class CartIndexContainer extends React.Component {
     return (
         <div className='before-cart'>
         <h2>
-          Carts
+          Your Order(s)
           </h2>
         <br />
         <div className='cart-box active-cart-container'>
           <h4>
-            [Current Order]
+            [ Waiting to Checkout ]
             </h4>
           <div>
             <h5>
@@ -74,7 +74,7 @@ class CartIndexContainer extends React.Component {
         <br/>
         <div className='cart-box inactive-cart-container'>
           <h4>
-            [Order History]
+            [ Order History ]
             </h4>
           <div>
             <h5>

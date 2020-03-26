@@ -1,0 +1,22 @@
+.steps{
+padding: 0vh 20vh 20vh 20vh;
+
+}
+.step-image {
+width: 5vh;
+height: 5vh;
+background: #99ccff;
+}
+
+.step-title {
+  font-size: 70%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.step1 {
+display: flex;
+height: 5vh;
+background: #ffccff;
+padding:
+}

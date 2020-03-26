@@ -46,6 +46,9 @@ class NavBar extends React.Component {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div>
+          {/* <img src='../treatment.png' alt='glowup' style={{width: '40px'}}/> */}
+          </div>
           <div className="">
             <a className="nav-bar-glowup" href="/glowup" style={{color: '#fa2acd'}}>GLOW UP</a>
           </div>
