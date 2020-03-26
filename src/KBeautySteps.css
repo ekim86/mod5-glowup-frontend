@@ -1,22 +1,51 @@
-.steps{
-padding: 0vh 20vh 20vh 20vh;
+.info-10-step { 
+padding: 0vh 5vh 5vh 5vh;
+font-size: 18px;
 
 }
-.step-image {
-width: 5vh;
-height: 5vh;
-background: #99ccff;
+.tabs {
+  padding: 0vh 5vh 15vh 5vh;
+  margin: auto;
+/* background: #99ccff;
+ */
 }
 
-.step-title {
-  font-size: 70%;
-  margin-top: auto;
-  margin-bottom: auto;
+.tab-content{
+  /* display: flex; */
+  font-size: 16px;
+  padding: 3%;
+
 }
 
-.step1 {
-display: flex;
-height: 5vh;
-background: #ffccff;
-padding:
+.step-details {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.step-details-box {
+width: 30%;
+  border: 1px solid rgb(150, 34, 34);
+}
+
+.step-info {
+  display: flex;
+}
+
+.tab-list-item {
+  font-size: 16px;
+}
+h4{
+  color: #fa2acd
+}
+
+p{
+  font-size: 14px
+}
+
+img {
+  /* border: 1px solid #ddd; */
+  /* border-radius: 4px; */
+  padding: 5px;
+  /* width: 150px;
+  height: 300px; */
 }
