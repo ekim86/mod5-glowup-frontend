@@ -19,7 +19,7 @@ let reducer = (state, action) => {
     case 'EDIT REVIEW':
       return { ...state, review: action.payload.review }
     case 'DELETE REVIEW':
-      return { ...state, reviews: state.reviews.filter(review => review.id != action.payload.review.id) }
+      return { ...state, reviews: state.reviews.filter(review => review.id !== action.payload.review.id) }
     case 'FETCH ALL CARTS':
       return { ...state, carts: action.payload.carts }
     case 'FETCH CART':
@@ -37,7 +37,7 @@ let reducer = (state, action) => {
       return { ...state, currentCartItems: action.payload }
     case 'REMOVE CART ITEM':
       const removedCartItem = action.payload.cartItem;
-      const allCartItems = state.currentCartItems.filter(cartItem => cartItem.id != removedCartItem.id)
+      const allCartItems = state.currentCartItems.filter(cartItem => cartItem.id !== removedCartItem.id)
       return {
         ...state,
         currentCartItems: allCartItems

@@ -2,6 +2,7 @@ import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import ReviewFormEditContainer from '../container/ReviewFormEditContainer';
 
+
 class ReviewCardNew extends React.Component {
   constructor(props) {
     super(props);

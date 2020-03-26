@@ -71,11 +71,21 @@ body {
     color: #fff;
   }
 
+  /* button:focus {
+    outline: none;
+    transform: scale(1.1);
+  } */
+
   button.review-update-btn {
     font-size: 10px;
     width: 7vh;
-  
   }
+
+
+  /* button.review-update-btn:focus {
+    outline: none;
+    transform: scale(1.1);
+  } */
 
   textarea.review-update {
     display: flex;

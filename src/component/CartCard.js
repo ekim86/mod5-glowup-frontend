@@ -49,6 +49,7 @@ class CartCard extends React.Component {
 
   render() {
     let quantity = this.props.cartItem.quantity;
+    let total= this.state.quantity * this.props.product.price.toFixed(2)
 
     if (this.props.active) {
       quantity = <input
@@ -76,11 +77,13 @@ class CartCard extends React.Component {
               {/* <div> */}
               <br/>
                 Quantity: {quantity}
+                {/* {total} */}
                 <br/>
+                <br/> 
               {/* </div> */}
               {/* <div> */}
               <button className={'cart-button' + (this.props.active ? " " : " disabled")} onClick={this.handleSubmit} disabled={!this.props.active}>Update</button>
-              <button className={'cart-button' + (this.props.active ? " " : " disabled")} onClick={this.handleDelete}>Remove Item</button>
+              <button className={'cart-button' + (this.props.active ? " " : " disabled")} onClick={this.handleDelete}>Remove</button>
               </div>
             </div>
           </div>
