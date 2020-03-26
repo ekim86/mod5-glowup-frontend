@@ -10,10 +10,19 @@ class NavBar extends React.Component {
     let cartLink = null;
 
     if (currentUser) {
-      userLink = <a href="/account/login" onClick={this.props.logout}><img src='../logout.png' alt='logout' style={{width: '30px'}}/></a>
-      cartLink = <a href={`/account/${currentUser.id}/cart/`}><img src='../cart.webp' alt='cart' style={{width: '30px'}}/></a>
+      userLink = <a href="/account/login" onClick={this.props.logout}>
+        {/* <img src='../logout.png' alt='logout' style={{width: '30px'}}/> */}
+        Log Out
+          </a>
+      cartLink = <a href={`/account/${currentUser.id}/cart/`}>
+        {/* <img src='../cart.webp' alt='cart' style={{width: '30px'}}/> */}
+        Cart
+        </a>
     } else {
-      userLink = <a href="/account/login"><img src='../login.png' alt='login' style={{width: '30px'}}/></a>
+      userLink = <a href="/account/login">
+        {/* <img src='../login.png' alt='login' style={{width: '30px'}}/> */}
+        Log In
+        </a>
     }
 
     return (
