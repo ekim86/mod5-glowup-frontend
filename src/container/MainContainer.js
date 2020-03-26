@@ -1,7 +1,7 @@
 import React from 'react';
 // import NavBar from '../component/NavBar';
 // import { Link } from 'react-router-dom';
-import '../KBeautySteps.css'
+// import '../KBeautySteps.css'
 
 
 function MainContainer(props) {
