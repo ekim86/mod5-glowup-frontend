@@ -14,7 +14,7 @@
 // export { fetchProducts }
 const headers = {'Content-Type': 'application/json', 'Accepts': 'application/json'}
 const parseData = response => response.json();
-const url = 'https://glowup-backend.herokuapp.com/'
+const url = 'https://glowup-backend.herokuapp.com'
 export const nextPageCreator = () => ( {type: 'NEXT_PAGE'} )
 export const previousPageCreator = () => ( {type: 'PREVIOUS_PAGE'} )
 
