@@ -14,7 +14,7 @@
 // export { fetchProducts }
 const headers = {'Content-Type': 'application/json', 'Accepts': 'application/json'}
 const parseData = response => response.json();
-
+const url = 'https://glowup-backend.herokuapp.com/'
 export const nextPageCreator = () => ( {type: 'NEXT_PAGE'} )
 export const previousPageCreator = () => ( {type: 'PREVIOUS_PAGE'} )
 
@@ -27,7 +27,7 @@ export const previousPageCreator = () => ( {type: 'PREVIOUS_PAGE'} )
 //   }
 
 export const fetchAllProducts = () => dispatch => {
-  fetch('http://localhost:4000/products')
+  fetch(`${url}/products`)
   .then(res => res.json())
   .then(data => {
    console.log('fetchALLproducts action', data)
@@ -36,7 +36,7 @@ export const fetchAllProducts = () => dispatch => {
 }
 
 export const fetchProduct = (id) => dispatch => {
-  fetch(`http://localhost:4000/products/${id}`)
+  fetch(`${url}/products/${id}`)
   .then(res => res.json())
   .then(data => {
    console.log('fetchONEproductid ACTIONNNN', data)
@@ -45,7 +45,7 @@ export const fetchProduct = (id) => dispatch => {
 }
 
 export const fetchReviews = (productId) => dispatch => {
-  fetch(`http://localhost:4000/products/${productId}/reviews`)
+  fetch(`${url}/products/${productId}/reviews`)
   .then(res => res.json())
   .then(data => {
    console.log('fetchreview action', data)
@@ -55,7 +55,7 @@ export const fetchReviews = (productId) => dispatch => {
 
 export const postReview = (review) => dispatch => {
   // debugger
-  fetch(`http://localhost:4000/reviews/`, {
+  fetch(`${url}/reviews/`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -70,7 +70,7 @@ export const postReview = (review) => dispatch => {
 }
 
 export const editReview = (review) => dispatch => {
-  fetch(`http://localhost:4000/reviews/${review.id}`, {
+  fetch(`${url}/reviews/${review.id}`, {
     method: 'PATCH',
     headers: {
       'Accept': 'application/json',
@@ -87,7 +87,7 @@ export const editReview = (review) => dispatch => {
 
 export const deleteReview = (reviewId) => dispatch => {
   // debugger
-  fetch(`http://localhost:4000/reviews/${reviewId}`, {
+  fetch(`${url}/reviews/${reviewId}`, {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
@@ -111,7 +111,7 @@ export const deleteReview = (reviewId) => dispatch => {
 
 
 export const fetchAllCarts = (userId) => dispatch => {
-  fetch(`http://localhost:4000/users/${userId}/carts`)
+  fetch(`${url}/users/${userId}/carts`)
   .then(parseData)
   .then(data => {
     dispatch({ type: 'FETCH ALL CARTS', payload: data })
@@ -119,7 +119,7 @@ export const fetchAllCarts = (userId) => dispatch => {
 }
 
 export const fetchCart = (cartId, userId) => dispatch => {
-  fetch(`http://localhost:4000/users/${userId}/carts/${cartId}`)
+  fetch(`${url}/users/${userId}/carts/${cartId}`)
   .then(parseData)
   .then(data => {
     dispatch({ type: 'FETCH CART', payload: data })
@@ -128,7 +128,7 @@ export const fetchCart = (cartId, userId) => dispatch => {
 
 export const createCart = (cart) => dispatch => {
   if (cart.user_id) {
-    fetch(`http://localhost:4000/users/${cart.user_id}/carts/`, {
+    fetch(`${url}/users/${cart.user_id}/carts/`, {
       method: 'POST',
       headers,
       body: JSON.stringify({cart})
@@ -141,7 +141,7 @@ export const createCart = (cart) => dispatch => {
 }
 
 export const closeCart = (cartId, userId) => dispatch => {
-  fetch(`http://localhost:4000/users/${userId}/carts/${cartId}`, {
+  fetch(`${url}/users/${userId}/carts/${cartId}`, {
     method: 'PATCH',
     headers,
     body: JSON.stringify({cartId})
@@ -152,7 +152,7 @@ export const closeCart = (cartId, userId) => dispatch => {
 }
 
 export const addToCart = (cartItem, userId) => dispatch => {
-  fetch(`http://localhost:4000/users/${userId}/carts/${cartItem.cart_id}/cart_items`, {
+  fetch(`${url}/users/${userId}/carts/${cartItem.cart_id}/cart_items`, {
     method: 'POST',
     headers,
     body: JSON.stringify({cartItem})
@@ -163,7 +163,7 @@ export const addToCart = (cartItem, userId) => dispatch => {
 }
 
 export const editCartItem = (cartItem, userId) => dispatch => {
-  fetch(`http://localhost:4000/users/${userId}/carts/${cartItem.cart_id}/cart_items/${cartItem.id}`, {
+  fetch(`${url}/users/${userId}/carts/${cartItem.cart_id}/cart_items/${cartItem.id}`, {
     method: 'PATCH',
     headers,
     body: JSON.stringify({cartItem})
@@ -174,7 +174,7 @@ export const editCartItem = (cartItem, userId) => dispatch => {
 }
 
 export const removeCartItem = (cartItem, userId) => dispatch => {
-  fetch(`http://localhost:4000/users/${userId}/carts/${cartItem.cart_id}/cart_items/${cartItem.id}`, {
+  fetch(`${url}/users/${userId}/carts/${cartItem.cart_id}/cart_items/${cartItem.id}`, {
     method: 'DELETE',
     headers,
     body: JSON.stringify({cartItem})
@@ -203,7 +203,7 @@ export const removeCartItem = (cartItem, userId) => dispatch => {
 
 
 export const fetchCartItems = (cartId, userId) => dispatch => {
-  fetch(`http://localhost:4000/users/${userId}/carts/${cartId}/cart_items`)
+  fetch(`${url}/users/${userId}/carts/${cartId}/cart_items`)
   .then(parseData)
   .then(data => {
     dispatch({ type: 'FETCH CART ITEMS', payload: data })

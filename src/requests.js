@@ -1,7 +1,8 @@
 // headers --> use these at your own discretion
 const headers = {'Content-Type': 'application/json', 'Accepts': 'application/json'}
 // urls
-const url = "http://localhost:4000"
+// const url = "http://localhost:4000"
+const url = 'https://glowup-backend.herokuapp.com/'
 const usersURL = `${url}/users`
 const loginURL = `${url}/login`
 // parse incoming data
